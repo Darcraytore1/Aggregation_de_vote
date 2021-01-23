@@ -1,0 +1,9 @@
+{
+	"name" : "Election maire",
+	"description" : "Nous élisons le maire de Sucy en Brie",
+	"choices" : [
+		"Bruce Lee",
+		"Jacky",
+		"John Smith"
+	]
+}
