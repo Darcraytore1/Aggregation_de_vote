@@ -1,0 +1,17 @@
+{
+	"id_vote" : 6,
+	"rank" : [
+		{
+			"name" : "Bruce Lee",
+			"points" : "0.8"
+		},
+		{
+			"name" : "Jacky",
+			"points" : "0.5"
+		},
+		{
+			"name" : "John Smith",
+			"points" : "0.25"
+		}
+	]
+}

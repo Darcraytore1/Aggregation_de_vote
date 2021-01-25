@@ -1,4 +1,5 @@
 {
+	"id_account" : 0,
 	"name" : "Election maire",
 	"description" : "Nous élisons le maire de Sucy en Brie",
 	"choices" : [
