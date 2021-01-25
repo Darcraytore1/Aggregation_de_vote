@@ -1,0 +1,17 @@
+[{
+	"agregator": "grade-average", "details": {
+		"toto": {"average": 0.5633333},
+		"titi": {"average": 0.6166666},
+		"tata": {"average": 0.47}
+	},
+	"ranking": ["titi", "toto", "tata"]
+},
+{
+	"agregator": "borda", "details": {
+		"toto": {"average": 0.5633333},
+		"titi": {"average": 0.6166666},
+		"tata": {"average": 0.47}
+	},
+	"ranking": ["titi", "toto", "tata"]
+}
+]

@@ -20,7 +20,7 @@ foreach ($parsed_json as $vote){
 
 // Calcule le nombre de choix 
 
-$count = count($parsed_json[0]);
+$count = count($parsed_json);
 
 
 // moyenne des notes
@@ -38,6 +38,7 @@ foreach ($parsed_json as $vote){
 foreach ($tableauResult as $i => $value){
     $tableauResult[$i] /= $count;
 }
+
 
 // Fonction de triage de tableau par ordre décroissant
 
@@ -65,6 +66,7 @@ $result['agregator'] = "grade-average";
 $result['details'] = $tableauResult;
 $result['ranking'] = $ranking;
 
-echo json_encode($result);
+//return json_encode($result);
+return $result;
 ?>
 

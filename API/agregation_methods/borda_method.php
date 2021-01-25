@@ -51,6 +51,6 @@ $result['agregator'] = "bordat-method";
 $result['details'] = $tableauResult;
 $result['ranking'] = $ranking;
 
-echo json_encode($result);
-
+//return json_encode($result);
+return $result;
 ?>
