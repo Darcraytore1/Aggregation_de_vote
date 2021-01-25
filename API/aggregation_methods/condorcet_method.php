@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: application/json');
+
 $json = file_get_contents("format.json");
 $parsed_json = json_decode($json);
 
@@ -25,6 +27,8 @@ foreach ($parsed_json as $vote){
     $i ++;
 }
 
-var_dump($tableauResult);
+
+
+print_r($tableauResult);
 
 ?>
