@@ -27,16 +27,21 @@
 			</div>
 		</div>
 		<div class="row">
-			<form action="" method="GET">
+			<div class="col-12">
+				<br>
+			</div>
+		</div>
+		<divc class="row">
+			<form enctype="multipart/form-data" action="survey_result.php" method="post">
 				<div class="form-group">
-					<label for="jsonfile">JSON file</label>
-					<input type="file" class="form-control-file">
+					<label for="jsonfile">If you want directly get result of a list of vote, you can give your list with a json format</label>
+					<input type="hidden" name="MAX_FILE_SIZE" value="300000"/>
+					<input type="file" class="form-control-file" name="vote_list">
 				</div>
 				<button class="btn btn-primary">
 					Give result
 				</button>
 			</form>
-
 		</div>
 	</div>
 </body>

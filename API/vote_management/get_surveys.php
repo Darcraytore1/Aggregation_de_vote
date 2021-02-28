@@ -16,14 +16,17 @@ function get_surveys(){
 		$surveys[$i]['description'] = $survey['description'];
 
 		// choices infos
+		
 		$sql = "SELECT `name` FROM choice WHERE id_survey = 2";
 		$choices = $dbh->query($sql)->fetchAll();
-		print_r($choices);
-		$surveys[$i]["choices"] = array();
-		//$surveys[$i]["choices"] = $choices;
+		$surveys[$i]["choices"] = $choices;
+
+		// Maybe vote info with classement and note
+
+		
 		$i ++;
 	}
-	return $survey;
+	return $surveys;
 }
 
 print_r (get_surveys());
