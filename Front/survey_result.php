@@ -1,8 +1,15 @@
 <?php
 
 	// On the survey_creation.html page, you must put options for the user choose the different aggregation methods that he wants use
+	if (isset($_POST['average_method'])){
+		$survey_result = include("../API/aggregation_methods/average_method.php");
+	} else if (isset($_POST['borda_method'])){
+		$survey_result = include("../API/aggregation_methods/borda_method.php");
+	} else if (isset($_POST['median_method'])) {
+		$survey_result = include("../API/aggregation_methods/median.php");
+	}
 
-	$survey_result = include("../API/aggregation_methods/average_vote.php");
+	//$survey_result = include("../API/aggregation_methods/average_method.php");
 	//print_r($survey_result);
 ?>
 <!DOCTYPE html>
@@ -33,10 +40,21 @@
 				<?php 
 					for ($i = 0; $i < count($survey_result['ranking']); $i++) {
 						$player = $survey_result['ranking'][$i];
-						echo ($i+1). ' place = '. $player . ' with '. $survey_result["details"]["$player"]["average"]. ' average notation';
+						echo ($i+1). ' place = '. $player . ' | '. $survey_result["details"]["$player"][$i];
 						echo "<br>";
 					}
 				?>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<br>
+				<br>
+				<a href="survey_creation.html">
+					<button class="btn btn-primary">
+						Another Survey ?
+					</button>
+				</a>
 			</div>
 		</div>
 	</div>

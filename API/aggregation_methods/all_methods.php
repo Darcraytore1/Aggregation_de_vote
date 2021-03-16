@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 $all_methods = array();
 
 $borda = include("borda_method.php");
-$average = include("average_vote.php");
+$average = include("average_method.php");
 $median = include("median.php");
 
 $all_methods[0] = $borda;

@@ -55,9 +55,10 @@ foreach ($tableauResult as $key => $value){
 }
 
 // J'essaie de coller à l'exemple donné par le prof
-
+$i = 0;
 foreach ($tableauResult as $key => $value){
-    $tableauResult[$key] = array("average" => $value);
+    $tableauResult[$key] = array($i => $value);
+	$i ++;
 }
 
 // Création du format de rendu en json

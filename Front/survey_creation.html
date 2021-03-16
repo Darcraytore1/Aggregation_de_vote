@@ -37,6 +37,18 @@
 					<label for="jsonfile">If you want directly get result of a list of vote, you can give your list with a json format</label>
 					<input type="hidden" name="MAX_FILE_SIZE" value="300000"/>
 					<input type="file" class="form-control-file" name="vote_list">
+					<br>
+
+					<!-- I can directly create checkbox in function of methods who are in the API rather than in raw -->
+					
+					<input type="checkbox" name="average_method">
+					<label for="average_method">Average method</label>
+
+					<input type="checkbox" name="borda_method">
+					<label for="borda_method">Borda method</label>
+
+					<input type="checkbox" name="median_method">
+					<label for="median_method">Median method</label>
 				</div>
 				<button class="btn btn-primary">
 					Give result

@@ -1,9 +1,10 @@
 <?php
 // Méthode Bordat 
 
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 
-$json = file_get_contents("format.json");
+$file_path = $_FILES['vote_list']['tmp_name'];
+$json = file_get_contents("$file_path");
 $parsed_json = json_decode($json);
 
 // Le nombre de choix possibles 
@@ -40,8 +41,10 @@ foreach ($tableauResult as $key => $value){
     $i ++;
 }
 
+$i = 0;
 foreach ($tableauResult as $key => $value){
-    $tableauResult[$key] = array("points" => $value);
+    $tableauResult[$key] = array($i => $value);
+	$i ++;
 }
 
 //var_dump($tableauResult);
