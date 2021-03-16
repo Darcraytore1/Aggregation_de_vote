@@ -15,9 +15,17 @@ addButton.addEventListener("click",function(event) {
 
 	choiceList.push(inputValue);
 
-	let br = document.createElement("br");
-	textChoiceList.after(br)
-	textChoiceList.after(inputValue);
+	textChoiceList.insertAdjacentHTML('afterend','<p id="choice' + choiceList.length + '">' + inputValue + '</p>');
+	textChoiceList.insertAdjacentHTML('afterend','<button id="button' + choiceList.length + '" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
 	
+	var quitButton = document.getElementById("button" + choiceList.length);
+	var choice = document.getElementById("choice" + choiceList.length);
+	quitButton.addEventListener('click', function(event) {
+		choice.remove();
+		quitButton.remove();
+		choiceList.splice(choiceList.indexOf(inputValue),1);
+		choiceNumber.innerHTML = "Number of choice : " + choiceList.length;
+	});
+
 	choiceNumber.innerHTML = "Number of choice : " + choiceList.length;
 })
