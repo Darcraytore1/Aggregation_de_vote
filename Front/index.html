@@ -3,52 +3,66 @@
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	<title>Home page</title>
+	<title>Login page</title>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel='stylesheet' type='text/css' media='screen' href='styles/styles.css'>
 </head>
-
-<!-- put a navbar -->
-<header>
-
-</header>
 <body>
-    <!-- Put maybe to the middle the button to create a survey -->
-    <div class="container">
-        <div class="row">
-            <!-- Do it properly, to be reponsive -->
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </div>
-        <div class="row">
-            <!-- Maybe a little description of survey -->
-            <div class="col-12 text-center">
-                <!-- I'm not sure if it's really usefull to put a good description here ? -->
-                You can create a survey if you click on this button
-                <br>
-                <br>
-            </div>
-        </div>
-        <div class="row">
-            <!-- Put the option to start a survey for the admin -->
-            <div class="col-12 text-center">
-				<a href="survey_creation.html">
-					<button class="btn btn-primary"> 
-						Create survey
+	<!-- 2 accounts, user and admin, there is user account because user must to have
+	the permission to can answer to the survey, so for recognise him, there is user account -->
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 text-center">
+				<br>
+				<h1>
+					Login page
+				</h1>
+				<br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>
+		</div>
+		<div class="portfolio-block">
+			<div class="row justify-content-md-center align-items-center">
+				<div class="col-md-auto">
+					Username
+				</div>
+				<div class="col-md-auto">
+					<input type="text" class="input-perso">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<br>
+				</div>
+			</div>
+			<div class="row justify-content-md-center align-items-center">
+				<div class="col-md-auto">
+					Password
+				</div>
+				<div class="col-md-auto">
+					<input type="password" class="input-perso">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 text-center">
+					<br>
+					<button class="btn btn-primary btn-size">
+						LOGIN
 					</button>
-				</a>
-            </div>
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

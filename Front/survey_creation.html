@@ -41,14 +41,14 @@
 
 					<!-- I can directly create checkbox in function of methods who are in the API rather than in raw -->
 					
-					<input type="checkbox" name="average_method">
-					<label for="average_method">Average method</label>
+					<input type="checkbox" name="average_method" id="checkbox_average_method">
+					<label for="checkbox_average_method" class="margin-right">Average method</label>
 
-					<input type="checkbox" name="borda_method">
-					<label for="borda_method">Borda method</label>
+					<input type="checkbox" name="borda_method" id="checkbox_borda_method">
+					<label for="checkbox_borda_method" class="margin-right">Borda method</label>
 
-					<input type="checkbox" name="median_method">
-					<label for="median_method">Median method</label>
+					<input type="checkbox" name="median_method" id="checkbox_median_method">
+					<label for="checkbox_median_method" class="margin-right">Median method</label>
 				</div>
 				<button class="btn btn-primary">
 					Give result
@@ -56,5 +56,8 @@
 			</form>
 		</div>
 	</div>
+	<script src="scripts/label_check.js"></script>
 </body>
 </html>
+
+<!-- I must say to the user, if he doesn't check a box to check one -->

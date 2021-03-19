@@ -60,3 +60,5 @@
 	</div>
 </body>
 </html>
+
+<!-- I must add a error management if the json is not valid -->

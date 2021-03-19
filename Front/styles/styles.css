@@ -41,3 +41,7 @@ body {
 .main-navigation {
 	color: black;
 }
+
+.margin-right {
+	margin-right: 2vw;
+}
