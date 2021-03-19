@@ -6,3 +6,38 @@ body {
 .login_section {
 	background-color: rgb(255,255,255);
 }
+
+.hidden {
+	visibility: hidden;
+}
+
+.portfolio-block {
+	padding-top: 2%;
+	padding-bottom: 2%;
+	margin: auto;
+	width: 50%;
+	color:black;
+	background-color: rgb(199, 199, 199);
+	border: black;
+}
+
+.input-perso {
+	height: 40px;
+}
+
+.btn-size {
+	width: 200px;
+	background-color: #1b78d0;
+}
+
+.mid-header {
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .25);
+    -webkit-backface-visibility: hidden;
+    transition: all ease .6s;
+    text-align: center;
+}
+
+.main-navigation {
+	color: black;
+}

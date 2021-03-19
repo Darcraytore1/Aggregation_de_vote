@@ -1,7 +1,8 @@
 var addButton = document.getElementById("add");
+var sendButton = document.getElementById("send");
 var choiceList = new Array();
 
-addButton.addEventListener("click",function(event) {
+addButton.addEventListener('click',function(event) {
 	let inputChoice = document.getElementById("inputChoice");
 	let textChoiceList = document.getElementById("choiceList");
 	let choiceNumber = document.getElementById("choiceNumber");
@@ -20,6 +21,9 @@ addButton.addEventListener("click",function(event) {
 	
 	var quitButton = document.getElementById("button" + choiceList.length);
 	var choice = document.getElementById("choice" + choiceList.length);
+	var choices = document.getElementById("choices");
+	choices.innerHTML += "<option value=" + inputValue + "></option>";
+
 	quitButton.addEventListener('click', function(event) {
 		choice.remove();
 		quitButton.remove();
@@ -28,4 +32,5 @@ addButton.addEventListener("click",function(event) {
 	});
 
 	choiceNumber.innerHTML = "Number of choice : " + choiceList.length;
+	return false;
 })

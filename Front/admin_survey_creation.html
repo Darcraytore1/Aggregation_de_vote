@@ -19,42 +19,29 @@
 				<br>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-12">
-				Name of the survey : 
-				<input type="text">
+		<form type="get" action="admin_survey_choice_creation.php">
+			<div class="row">
+				<div class="col-12">
+					Name of the survey : 
+					<input type="text" name="survey_name">
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<br>
-				Choice :
-				<input type="text" id="inputChoice">
-				<button class="btn btn-primary" id="add">
-					ADD
-				</button>
-				<br>
+			<div class="row">
+				<div class="col-12">
+					<br>
+					Description of the survey : 
+					<input type="textarea" name="survey_description">
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<p id="choiceNumber">
-					Number of choice : 
-				</p>
-				<p id="choiceList">
-					Choice list : 
-				</p>
+			<div class="row">
+				<div class="col-12 text-center">
+					<br>
+					<button id="send" class="btn btn-primary" type="submit">
+						SEND
+					</button>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 text-center">
-				<br>
-				<button class="btn btn-primary">
-					SEND
-				</button>
-			</div>
-		</div>
+		</form>
 	</div>
 </body>
-<script src="scripts/survey_creation.js"></script>
 </html>
