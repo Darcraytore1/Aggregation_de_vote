@@ -14,7 +14,7 @@ body {
 
 .portfolio-block {
 	margin: auto;
-	width: 40%;
+	width: 30%;
 	color:black;
 	background-color: white;
 	border: black;
@@ -62,3 +62,21 @@ body {
 .margin-top {
 	margin-top: 2vh;
 }
+
+@media (max-width: 900px) {
+	.portfolio-block {
+		width: 60%;
+	}
+}	
+
+@media (max-width: 600px) {
+	.portfolio-block {
+		width: 75%;
+	}
+}	
+
+@media (max-width: 400px) {
+	.portfolio-block {
+		width: 90%;
+	}
+}	
