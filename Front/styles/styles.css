@@ -67,6 +67,11 @@ body {
 	margin-right: 2vw;
 }
 
+.btn-transparent {
+	background: none;
+	border: none;
+}
+
 .alternative {
 	margin-top: 2rem;
 	font-size: 0.7em;
@@ -89,6 +94,15 @@ p.error {
 
 }
 
+.flex {
+	display: flex;
+	justify-content: center;
+}
+
+.align-center {
+	align-items: center;
+}
+
 @media (max-width: 900px) {
 	.portfolio-block {
 		width: 60%;
@@ -106,3 +120,4 @@ p.error {
 		width: 90%;
 	}
 }	
+
