@@ -24,7 +24,7 @@
 				</h1>
 			</div>
 		</div>
-		<div class="portfolio-block">
+		<div class="portfolio portfolio-block">
 			<!--
 			<div class="row justify-content-md-center align-items-center">
 				<div class="col-md-auto">

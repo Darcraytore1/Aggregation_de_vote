@@ -12,16 +12,29 @@ body {
 	visibility: hidden;
 }
 
-.portfolio-block {
-	margin: auto;
-	width: 30%;
-	color:black;
+.portfolio {
 	background-color: white;
 	border: black;
 	border-radius: 20px;
 	box-shadow: 3px 3px 4px #251616;;
+}
+
+.portfolio-block {
+	margin: auto;
+	width: 30%;
 	margin-top: 18vh;
 	padding: 5vh;
+}
+
+.portfolio-list {
+	margin-top: 18vh;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.portfolio-3 {
+	padding: 5vh;
+	width: 30%;
 }
 
 .input-perso {
@@ -70,6 +83,10 @@ body {
 p.error {
 	color:#c33;
 	font-size: 80%;
+}
+
+.description {
+
 }
 
 @media (max-width: 900px) {
