@@ -6,6 +6,8 @@
 <?php 
 	include "../API/BDD/connexionLocal.php";
 
+	session_start();
+
 	if (isset($_POST['username']) and isset($_POST['password'])){
 		if ($_POST['username'] == "" and $_POST['password'] == "") {
 			$any_words = 1;
@@ -22,10 +24,12 @@
 
 				$host = $_SERVER['HTTP_HOST'];
 				if ($account_type == 1) {
-					header('Location: http://'.$host.'/Front/admin.html');
+					$_SESSION['admin'] = 1;
+					header('Location: http://'.$host.'/Front/admin.php');
 					exit;
 				} else if ($account_type == 2) {
-					header('Location: http://'.$host.'/Front/user.html');
+					$_SESSION['user'] = 1;
+					header('Location: http://'.$host.'/Front/user.php');
 					exit;
 				}
 			} else {

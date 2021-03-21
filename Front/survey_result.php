@@ -1,5 +1,12 @@
 <?php
 
+	session_start();
+	$host = $_SERVER['HTTP_HOST'];
+	if ((!isset($_SESSION['admin'])) and (!isset($_SESSION['user']))) {
+		header('Location: http://'.$host.'/Front/index.php');
+		exit;
+	}
+
 	// On the survey_creation.html page, you must put options for the user choose the different aggregation methods that he wants use
 	if (isset($_POST['average_method'])){
 		$survey_result = include("../API/aggregation_methods/average_method.php");

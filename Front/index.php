@@ -70,7 +70,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-12 text-center margin-top">
+					<div class="col-12 text-center">
 						<div>
 							<?php
 								if (isset($bad_password)) {

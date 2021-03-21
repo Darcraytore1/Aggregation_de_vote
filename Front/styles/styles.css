@@ -103,6 +103,10 @@ p.error {
 	align-items: center;
 }
 
+.little_margin-right {
+	margin-right: 0.5vw;
+}
+
 @media (max-width: 900px) {
 	.portfolio-block {
 		width: 60%;

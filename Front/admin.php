@@ -5,6 +5,15 @@
 	Chose à faire : - mettre des lignes au lieu de colonnes pour les portfolios
 -->
 
+<?php
+	session_start();
+	$host = $_SERVER['HTTP_HOST'];
+	if (!isset($_SESSION['admin'])) {
+		header('Location: http://'.$host.'/Front/index.php');
+		exit;
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,9 +54,11 @@
 							vous pourrez le cloturer et recevoir les résultats en fonction des 
 							différentes méthodes d'aggrégations que nous proposons.
 						</p>
-						<button class="btn btn-primary margin-top">
-							Créer sondage
-						</button>
+						<a href="admin_survey_creation.html">
+							<button class="btn btn-primary margin-top">
+								Créer sondage
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -63,9 +74,11 @@
 							sondage donné, quand celui ci sera cloturé nous vous tiendront au 
 							courant des résultats obtenus.
 						</p>
-						<button class="btn btn-primary margin-top">
-							Voter
-						</button>
+						<a href="survey_list.html">
+							<button class="btn btn-primary margin-top">
+									Voter
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -81,9 +94,11 @@
 							votre sondage, vous pouvez ici aussi choisir les méthodes d'aggrégations
 							que vous voulez qui sont présentes.
 						</p>
-						<button class="btn btn-primary margin-top">
-							Sondage JSON
-						</button>
+						<a href="result_survey_json.html">
+							<button class="btn btn-primary margin-top">
+								Sondage JSON
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
