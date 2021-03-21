@@ -20,7 +20,7 @@ body {
 	border: black;
 	border-radius: 20px;
 	box-shadow: 3px 3px 4px #251616;;
-	margin-top: 15vh;
+	margin-top: 18vh;
 	padding: 5vh;
 }
 
@@ -61,6 +61,15 @@ body {
 
 .margin-top {
 	margin-top: 2vh;
+}
+
+.block {
+	display: block;
+}
+
+p.error {
+	color:#c33;
+	font-size: 80%;
 }
 
 @media (max-width: 900px) {

@@ -1,3 +1,7 @@
+<?php
+	include("authentification.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,11 +19,9 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12 text-center">
-				<br>
-				<h1>
+				<h1 class="margin-top">
 					Connexion
 				</h1>
-				<br>
 			</div>
 		</div>
 		<div class="portfolio-block">
@@ -54,37 +56,50 @@
 				</div>
 			</div>
 			-->
-			<div>
+			<form method="POST" action="">
 				<div class="row">
 					<div class="col-12 text-center">
 						<div>
-							Nom d'utilisateur :
-							<br>
-							<input type="text" class="input-perso">
+							<label for="input_username" class="block">Nom d'utilisateur :</label>
+							<input type="text" class="input-perso" name="username" id="input_username">
 						</div>
 						<div class="margin-top">
-							Mot de passe :
-							<br>
-							<input type="password" class="input-perso">
+							<label for="input_password" class="block">Mot de passe :</label>
+							<input type="password" class="input-perso" name="password" id="input_password">
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-12 text-center">
-						<br>
+					<div class="col-12 text-center margin-top">
+						<div>
+							<?php
+								if (isset($bad_password)) {
+							?>
+									<p class="error">
+										Nom d'utilisateur ou mot de passe invalide
+									</p>
+							<?php
+								}
+								if (isset($any_words)) {
+							?>
+									<p class="error">
+										Aucune entrée
+									</p>
+							<?php 
+								}
+							?>
+						</div>
 						<button class="btn btn-primary btn-size">
 							CONNEXION
 						</button>
-						<br>
 						<div class="alternative">
-							<a href="user_sign_up.html">S'inscrire</a>
-							<br>
-							<a href="">mot de passe oublié</a>
+							<a href="user_sign_up.html" class="block">Inscription</a>
+							<a href="" class="block">Mot de passe oublié</a>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 	<footer>
 		

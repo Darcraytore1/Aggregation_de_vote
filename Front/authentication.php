@@ -1,1 +1,0 @@
-<!-- Page for redirections, normaly just to the user page or the admin page -->
