@@ -14,23 +14,27 @@
 		} else {
 			$username = $_POST['username'];
 			$password = $_POST['password'];
-			$cryped_pwd  = password_hash($password,PASSWORD_DEFAULT);
 
 			// Penser à crypter le mot de passe 
-			$req = $dbh->query("SELECT account_type FROM account WHERE `login` = '$username' AND `password` = '$password'");
+			$req = $dbh->query("SELECT account_type,`password` FROM account WHERE `login` = '$username'");
 
 			if ($req->rowCount() != 0) {
-				$account_type = $req->fetch()['account_type'];
+				$line = $req->fetch();
+				if (!password_verify($password,$line['password'])) {
+					$bad_password = 1;
+				} else {
+					$account_type = $line['account_type'];
 
-				$host = $_SERVER['HTTP_HOST'];
-				if ($account_type == 1) {
-					$_SESSION['admin'] = 1;
-					header('Location: http://'.$host.'/Front/admin.php');
-					exit;
-				} else if ($account_type == 2) {
-					$_SESSION['user'] = 1;
-					header('Location: http://'.$host.'/Front/user.php');
-					exit;
+					$host = $_SERVER['HTTP_HOST'];
+					if ($account_type == 1) {
+						$_SESSION['admin'] = 1;
+						header('Location: http://'.$host.'/Front/admin.php');
+						exit;
+					} else if ($account_type == 2) {
+						$_SESSION['user'] = 1;
+						header('Location: http://'.$host.'/Front/user.php');
+						exit;
+					}
 				}
 			} else {
 				$bad_password = 1;
