@@ -2,7 +2,7 @@
 	session_start();
 	$host = $_SERVER['HTTP_HOST'];
 	if (!isset($_SESSION['user'])) {
-		header('Location: http://'.$host.'/Front/index.php');
+		header('Location: http://'.$host.'/Front/');
 		exit;
 	}
 ?>

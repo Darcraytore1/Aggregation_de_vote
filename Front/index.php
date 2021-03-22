@@ -26,37 +26,6 @@
 			</div>
 		</div>
 		<div class="portfolio portfolio-block">
-			<!--
-			<div class="row justify-content-md-center align-items-center">
-				<div class="col-md-auto">
-					Nom d'utilisateur :
-				</div>
-				<div class="col-md-auto">
-					<input type="text" class="input-perso">
-				</div>
-			</div>
-			<div class="row justify-content-md-center align-items-center margin-top">
-				<div class="col-md-auto">
-					Mot de passe :
-				</div>
-				<div class="col-md-auto">
-					<input type="password" class="input-perso">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12 text-center">
-					<br>
-					<button class="btn btn-primary btn-size">
-						CONNEXION
-					</button>
-					<br>
-					<div class="alternative">
-						<a href="user_sign_up.html">S'inscrire</a>
-						<a href="">mot de passe oublié</a>
-					</div>
-				</div>
-			</div>
-			-->
 			<form method="POST" action="">
 				<div class="row">
 					<div class="col-12 text-center">

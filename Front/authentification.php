@@ -16,14 +16,16 @@
 			$password = $_POST['password'];
 
 			// Penser à crypter le mot de passe 
-			$req = $dbh->query("SELECT account_type,`password` FROM account WHERE `login` = '$username'");
+			$req = $dbh->query("SELECT id_account,account_type,`password` FROM account WHERE `login` = '$username'");
 
 			if ($req->rowCount() != 0) {
 				$line = $req->fetch();
 				if (!password_verify($password,$line['password'])) {
 					$bad_password = 1;
 				} else {
+					
 					$account_type = $line['account_type'];
+					$_SESSION['id_account'] = $line['id_account'];
 
 					$host = $_SERVER['HTTP_HOST'];
 					if ($account_type == 1) {
