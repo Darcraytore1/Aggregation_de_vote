@@ -5,6 +5,13 @@
 //header('Content-Type: application/json');
 
 $file_path = $_FILES['vote_list']['tmp_name'];
+
+// It's not a very good idea to pass by the name of the file, and even I don't know how to manage the errors with one API
+$name_file = $_FILES['vote_list']['name'];
+if ((new SplFileInfo($name_file))->getExtension() != "json") {
+	return -1;
+}
+
 $json = file_get_contents("$file_path");
 $parsed_json = json_decode($json);
 

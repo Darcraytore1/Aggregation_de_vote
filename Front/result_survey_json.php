@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	$host = $_SERVER['HTTP_HOST'];
+	if ((!isset($_SESSION['admin'])) and (!isset($_SESSION['user']))) {
+		header('Location: http://'.$host.'/Front/index.php');
+		exit;
+	}
+?>	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,6 +65,17 @@
 							<label for="checkbox_median_method">Median method</label>
 						</div>
 					</div>
+
+					<?php
+						// Trouver comment envoyer un message depuis une autre page sans passer pas un get
+					?>
+						<!--
+						<p class="error">
+							Aucun fichier sélectionné 
+						</p>
+						-->
+					<?php
+					?>
 					<button class="btn btn-primary">
 						Give result
 					</button>

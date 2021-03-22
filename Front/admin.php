@@ -35,7 +35,7 @@
 				</h1>
 			</div>
 			<div class="col-4 text-right">
-				<a href="content-right" class="margin-right">
+				<a href="index.php" class="margin-right">
 					Déconnexion
 				</a>
 			</div>
@@ -54,7 +54,7 @@
 							vous pourrez le cloturer et recevoir les résultats en fonction des 
 							différentes méthodes d'aggrégations que nous proposons.
 						</p>
-						<a href="admin_survey_creation.html">
+						<a href="admin_survey_creation.php">
 							<button class="btn btn-primary margin-top">
 								Créer sondage
 							</button>
@@ -89,12 +89,12 @@
 							Résultat direct avec fichier JSON
 						</h2>
 						<p class="description margin-top">
-							En appuyant sur ce boutton, vous pouvez avec l'aide d'un fichier json,
+							En appuyant sur ce bouton, vous pouvez avec l'aide d'un fichier json,
 							qui respecte la forme indiqué obtenir les résultats directement de 
 							votre sondage, vous pouvez ici aussi choisir les méthodes d'aggrégations
 							que vous voulez qui sont présentes.
 						</p>
-						<a href="result_survey_json.html">
+						<a href="result_survey_json.php">
 							<button class="btn btn-primary margin-top">
 								Sondage JSON
 							</button>

@@ -1,5 +1,6 @@
 <?php
 	include("authentification.php");
+	session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +76,7 @@
 							<?php
 								if (isset($bad_password)) {
 							?>
-									<p class="error">
+									<p class="error margin-top">
 										Nom d'utilisateur ou mot de passe invalide
 									</p>
 							<?php
@@ -89,7 +90,7 @@
 								}
 							?>
 						</div>
-						<button class="btn btn-primary btn-size">
+						<button class="btn btn-primary btn-size margin-top">
 							CONNEXION
 						</button>
 						<div class="alternative">

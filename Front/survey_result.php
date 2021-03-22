@@ -7,6 +7,17 @@
 		exit;
 	}
 
+	if ($_FILES['vote_list']['tmp_name'] == "") {
+		header('Location: http://'.$host.'/Front/result_survey_json.php');
+		exit;
+	}
+
+	// Chercher une methode pour gerer plus simplement les differents noms 
+	if (!isset($_POST['average_method']) and !isset($_POST['borda_method']) and !isset($_POST['median_method'])) {
+		header('Location: http://'.$host.'/Front/result_survey_json.php');
+		exit;
+	}
+
 	// On the survey_creation.html page, you must put options for the user choose the different aggregation methods that he wants use
 	if (isset($_POST['average_method'])){
 		$survey_result = include("../API/aggregation_methods/average_method.php");
@@ -14,6 +25,12 @@
 		$survey_result = include("../API/aggregation_methods/borda_method.php");
 	} else if (isset($_POST['median_method'])) {
 		$survey_result = include("../API/aggregation_methods/median.php");
+	}
+
+	if ($survey_result == -1) {
+		// We can explain on this page the reason of the fail attempt of the user
+		header('Location: http://'.$host.'/Front/result_survey_json.php');
+		exit;
 	}
 
 	//$survey_result = include("../API/aggregation_methods/average_method.php");
@@ -30,38 +47,49 @@
 	<link rel='stylesheet' type='text/css' media='screen' href='styles/styles.css'>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-12">
-				<br>
-				Method = <?php echo $survey_result['agregator']; ?>
-				<br>
-				<br>
+			<div class="col-12 text-center margin-top">
+				<h1>
+					Résultat
+				</h1>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12">
-				Ranking : 
-				<br>
-				<br>
-				<?php 
-					for ($i = 0; $i < count($survey_result['ranking']); $i++) {
-						$player = $survey_result['ranking'][$i];
-						echo ($i+1). ' place = '. $player . ' | '. $survey_result["details"]["$player"][$i];
-						echo "<br>";
-					}
-				?>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<br>
-				<br>
-				<a href="survey_creation.html">
-					<button class="btn btn-primary">
-						Another Survey ?
-					</button>
-				</a>
+			<div class="col-12 text-center">
+				<div class="row">
+					<div class="col-12">
+						<br>
+						Method = <?php echo $survey_result['agregator']; ?>
+						<br>
+						<br>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						Ranking : 
+						<br>
+						<br>
+						<?php 
+							for ($i = 0; $i < count($survey_result['ranking']); $i++) {
+								$player = $survey_result['ranking'][$i];
+								echo ($i+1). ' place = '. $player . ' | '. $survey_result["details"]["$player"][$i];
+								echo "<br>";
+							}
+						?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<br>
+						<br>
+						<a href="result_survey_json.php">
+							<button class="btn btn-primary">
+								Another Survey ?
+							</button>
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
