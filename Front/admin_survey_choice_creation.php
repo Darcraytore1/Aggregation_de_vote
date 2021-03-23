@@ -1,3 +1,27 @@
+<?php
+	session_start();
+	$host = $_SERVER['HTTP_HOST'];
+	if (!isset($_SESSION['admin'])) {
+		header('Location: http://'.$host.'/Front/');
+		exit;
+	}
+
+	if (!isset($_POST['survey_name'])) {
+		header('Location: http://'.$host.'/Front/admin_manage_surveys.php');
+		exit;
+	}
+
+	include "../API/BDD/connexionLocal.php";
+
+	$survey_name = $_POST['survey_name'];
+	$survey_description = $_POST['survey_description'];
+	$id_account = $_SESSION['id_account'];
+
+	$sql = "INSERT INTO `survey`(`id_account`, `name`, `description`) VALUES ($id_account,'$survey_name','$survey_description')";
+	$req = $dbh->prepare($sql);
+	$req->execute();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,15 +35,13 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-12 text-center">
+			<div class="col-12 text-center margin-top">
 				<h1>
 					Choice creation
 				</h1>
 				<br>
 				<h3>
 				<?php
-					$survey_name = $_GET['survey_name'];
-					$survey_description = $_GET['survey_description'];
 
 					echo $survey_name;
 				?>
@@ -29,18 +51,18 @@
 		<div class="row">
 			<div class="col-12">
 				<br>
-				Choice :
+				Choix :
 				<input type="text" id="inputChoice">
 				<button class="btn btn-primary" id="add">
-					ADD
+					AJOUTER
 				</button>
 				<br>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<p id="choiceNumber">
-					Number of choice : 
+				<p id="choiceNumber" class="margin-top">
+					Nombre de choix : 
 				</p>
 				<p id="choiceList">
 					Choice list : 

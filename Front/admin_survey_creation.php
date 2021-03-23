@@ -33,20 +33,21 @@
 				</a>
 			</div>
 		</div>
-		<div class="row margin-top">
+		<div class="row big-margin-top">
 			<div class="col-12 text-center">
-				<form type="get" action="admin_survey_choice_creation.php">
+				<form method="POST" action="admin_survey_choice_creation.php">
 					<div class="row">
 						<div class="col-12">
-							Nom du sondage : 
-							<input type="text" name="survey_name">
+							<label for="input_survey_name">Nom du sondage :</label>
+							<input type="text" name="survey_name" id="input_survey_name">
 						</div>
 					</div>
-					<div class="row">
+					<div class="row margin-top">
 						<div class="col-12">
-							<br>
-							Description du sondage : 
-							<input type="textarea" name="survey_description">
+							<div>
+								<label for="input_survey_description">Description du sondage :</label>
+							</div>
+							<textarea class="textarea" name="survey_description" id="input_survey_description"></textarea>
 						</div>
 					</div>
 					<div class="row">

@@ -108,6 +108,29 @@ p.error {
 	margin-right: 0.5vw;
 }
 
+.surveys {
+
+}
+
+.survey {
+	background: white;
+    box-shadow: 1px 1px 4px #251616;
+    margin-bottom: 3vh;
+}
+
+.margin-left {
+	margin-left: 5px;
+}
+
+.big-margin-top {
+	margin-top: 25vh;
+}
+
+.textarea {
+	height: 100px;
+	width: 250px;
+}
+
 @media (max-width: 900px) {
 	.portfolio-block {
 		width: 60%;
