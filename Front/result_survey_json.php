@@ -5,6 +5,11 @@
 		header('Location: http://'.$host.'/Front/index.php');
 		exit;
 	}
+	if (isset($_SESSION['admin'])){
+		$return = 'admin';
+	} else {
+		$return = 'user';
+	}
 ?>	
 
 <!DOCTYPE html>
@@ -32,7 +37,8 @@
 				</h1>
 			</div>
 			<div class="col-4 text-right">
-				<a href="admin.php" class="margin-right">
+				<!-- Renvoyer vers la bonne page en fonction que ça soit un user ou un admin-->
+				<a href="<?php echo $return ?>.php" class="margin-right">
 					Retour
 				</a>
 			</div>

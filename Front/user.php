@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-4 text-center">
 				<h1 class="margin-top">
-					Admin
+					User
 				</h1>
 			</div>
 			<div class="col-4 text-right">
