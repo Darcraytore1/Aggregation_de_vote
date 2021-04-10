@@ -1,1 +1,152 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+	background-color: gainsboro;
+	color : black;
+	font-family: sans-serif;
+}
+
+.login_section {
+	background-color: rgb(255,255,255);
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.portfolio {
+	background-color: white;
+	border: black;
+	border-radius: 20px;
+	box-shadow: 3px 3px 4px #251616;;
+}
+
+.portfolio-block {
+	margin: auto;
+	width: 30%;
+	margin-top: 18vh;
+	padding: 5vh;
+}
+
+.portfolio-list {
+	margin-top: 18vh;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.portfolio-3 {
+	padding: 5vh;
+	width: 30%;
+}
+
+.input-perso {
+	height: 40px;
+	background-color: #DEF0FD;
+    border-color: black;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+.btn-size {
+	width: 200px;
+	background-color: #1b78d0;
+	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 23%);
+}
+
+.mid-header {
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .25);
+    -webkit-backface-visibility: hidden;
+    transition: all ease .6s;
+    text-align: center;
+}
+
+.main-navigation {
+	color: black;
+}
+
+.margin-right {
+	margin-right: 2vw;
+}
+
+.btn-transparent {
+	background: none;
+	border: none;
+}
+
+.alternative {
+	margin-top: 1.5rem;
+	font-size: 0.7em;
+}
+
+.margin-top {
+	margin-top: 2vh;
+}
+
+.block {
+	display: block;
+}
+
+p.error {
+	color:#c33;
+	font-size: 80%;
+	margin-bottom: 0;
+}
+
+.description {
+
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.little_margin-right {
+	margin-right: 0.5vw;
+}
+
+.surveys {
+
+}
+
+.survey {
+	background: white;
+    box-shadow: 1px 1px 4px #251616;
+    margin-bottom: 3vh;
+}
+
+.margin-left {
+	margin-left: 5px;
+}
+
+.big-margin-top {
+	margin-top: 25vh;
+}
+
+.textarea {
+	height: 100px;
+	width: 250px;
+}
+
+@media (max-width: 900px) {
+	.portfolio-block {
+		width: 60%;
+	}
+}
+
+@media (max-width: 600px) {
+	.portfolio-block {
+		width: 75%;
+	}
+}
+
+@media (max-width: 400px) {
+	.portfolio-block {
+		width: 90%;
+	}
+}

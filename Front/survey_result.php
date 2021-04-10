@@ -20,7 +20,25 @@
 
 	// On the survey_creation.html page, you must put options for the user choose the different aggregation methods that he wants use
 	if (isset($_POST['average_method'])){
-		$survey_result = include("../API/aggregation_methods/average_method.php");
+		
+		$curl = curl_init();
+
+		$opts = [
+			CURLOPT_URL => 'www.google.fr',
+			CURLOPT_RETURNTRANSFER => true,
+		];
+
+		curl_setopt_array($curl, $opts);
+
+		$response = curl_exec($curl);
+		curl_close($curl);
+		`http://127.0.0.1:8000/survey?json=[[{"choice": "toto", "grade": 0.94}, {"choice": "titi", "grade": 0.70}, {"choice": "tata", "grade": 0.5}],
+		[{"choice": "tata", "grade": 0.91}, {"choice": "toto", "grade": 0.50}, {"choice": "titi", "grade": 0.15}],
+		[{"choice": "titi", "grade": 1.0}, {"choice": "toto", "grade": 0.25}, {"choice": "tata", "grade": 0.0}],
+		[{"choice": "titi", "grade": 1.0}, {"choice": "toto", "grade": 0.25}, {"choice": "tata", "grade": 0.0}]]`;
+    	$raw = file_get_contents($url);
+		echo $raw;
+		//$survey_result = include("../API/aggregation_methods/average_method.php");
 	} else if (isset($_POST['borda_method'])){
 		$survey_result = include("../API/aggregation_methods/borda_method.php");
 	} else if (isset($_POST['median_method'])) {
