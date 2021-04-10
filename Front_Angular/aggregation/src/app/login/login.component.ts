@@ -16,8 +16,11 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    connexion() {
-
+    authentification () {
+        let auth = new AuthentificationService()
+        auth.authentificate(this.account.login,this.account.password).then ( isLoged => {
+            console.log(isLoged)
+        })
     }
 
 }

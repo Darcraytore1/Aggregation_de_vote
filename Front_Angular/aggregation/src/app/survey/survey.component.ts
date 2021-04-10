@@ -13,9 +13,11 @@ export class SurveyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getSurveys() {
+  async getSurveys() {
     let surveyService = new SurveyService()
-    surveyService.getSurvey()
+    let survey = surveyService.getSurvey().then ( survey => {
+        console.log(survey)
+    })
   }
 
 }

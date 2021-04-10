@@ -7,14 +7,24 @@ import { ɵKeyEventsPlugin } from '@angular/platform-browser';
 })
 export class AuthentificationService {
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
-  authentificate() {
-    let json = this.http.get(`http://127.0.0.1:8000/survey?json=[[{"choice": "toto", "grade": 0.94}, {"choice": "titi", "grade": 0.70}, {"choice": "tata", "grade": 0.5}],
-    [{"choice": "tata", "grade": 0.91}, {"choice": "toto", "grade": 0.50}, {"choice": "titi", "grade": 0.15}],
-    [{"choice": "titi", "grade": 1.0}, {"choice": "toto", "grade": 0.25}, {"choice": "tata", "grade": 0.0}],
-    [{"choice": "titi", "grade": 1.0}, {"choice": "toto", "grade": 0.25}, {"choice": "tata", "grade": 0.0}]]`, {responseType: 'json'});
+  async authentificate(login: string, password: string): Promise<Boolean> {
+    let result = await fetch(`http://127.0.0.1:8000/api/users`,{
+        method: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
 
-    return json
+    let json = await result.json()
+    let obj = JSON.parse(json)
+    console.log(obj)
+    obj.forEach(user => {
+        if (login === user.login && password === user.password) return true
+    });
+
+    return false
   }
 }
