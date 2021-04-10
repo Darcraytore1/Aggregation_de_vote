@@ -74,7 +74,7 @@
 							sondage donné, quand celui ci sera cloturé nous vous tiendront au 
 							courant des résultats obtenus.
 						</p>
-						<a href="survey_list.html">
+						<a href="survey_list.php">
 							<button class="btn btn-primary margin-top">
 									Voter
 							</button>

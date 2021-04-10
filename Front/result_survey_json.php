@@ -37,7 +37,6 @@
 				</h1>
 			</div>
 			<div class="col-4 text-right">
-				<!-- Renvoyer vers la bonne page en fonction que ça soit un user ou un admin-->
 				<a href="<?php echo $return ?>.php" class="margin-right">
 					Retour
 				</a>
@@ -73,7 +72,7 @@
 					</div>
 
 					<?php
-						// Trouver comment envoyer un message depuis une autre page sans passer pas un get
+						// Trouver comment envoyer un message depuis une autre page sans passer par un get
 					?>
 						<!--
 						<p class="error">
@@ -89,7 +88,6 @@
 			</div>
 		</div>
 	</div>
-	<script src="scripts/label_check.js"></script>
 </body>
 </html>
 

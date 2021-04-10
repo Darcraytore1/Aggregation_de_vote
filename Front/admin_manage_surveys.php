@@ -28,8 +28,8 @@
 				</h1>
 			</div>
 			<div class="col-4 text-right">
-				<a href="index.php" class="margin-right">
-					Déconnexion
+				<a href="admin.php" class="margin-right">
+					Retour
 				</a>
 			</div>
 		</div>
