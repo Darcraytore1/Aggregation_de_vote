@@ -1,3 +1,4 @@
+import { SurveyResult } from './survey-json/SurveyResult';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -20,17 +21,15 @@ export class AggregationMethodsService {
         });
 
         let json = await result.json()
-        console.log(json)
-        return "prout";
+        return json;
     }
 
-    async getSurveyResult(survey: File): Promise<number> {
+    async getSurveyResult(survey: string): Promise<SurveyResult> {
 
-        let url = "http://127.0.0.1:8000/api/aggregation-methods"
-        console.log(url)
+        let url = "http://127.0.0.1:8000/api/aggregation-methods?survey=" + survey
 
         let result = await fetch(url,{
-            method: "POST",
+            method: "GET",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -38,7 +37,6 @@ export class AggregationMethodsService {
         });
 
         let json = await result.json()
-        console.log(json)
-        return -1;
+        return json;
     }
 }

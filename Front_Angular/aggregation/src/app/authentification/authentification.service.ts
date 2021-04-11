@@ -24,6 +24,8 @@ export class AuthentificationService {
 
     let json = await result.json()
     if (json.isLogged == true) return json.type
+    // password et username vide
+    if (json.empty == true) return -2
     return -1;
   }
 

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 
@@ -14,6 +14,8 @@ import { SurveyJSONComponent } from './survey-json/survey-json.component';
 import { SurveyCreationComponent } from './survey-creation/survey-creation.component';
 import { SurveyMenuComponent } from './survey-menu/survey-menu.component';
 import { VoteComponent } from './vote/vote.component';
+import { SurveyDisplayerComponent } from './survey-displayer/survey-displayer.component';
+import { SurveyResultDisplayerComponent } from './survey-result-displayer/survey-result-displayer.component';
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
@@ -35,12 +37,16 @@ const appRoutes: Routes = [
     SurveyJSONComponent,
     SurveyCreationComponent,
     SurveyMenuComponent,
-    VoteComponent
+    VoteComponent,
+    SurveyDisplayerComponent,
+    SurveyResultDisplayerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true, useHash: true, relativeLinkResolution: 'legacy'})
   ],
   providers: [],

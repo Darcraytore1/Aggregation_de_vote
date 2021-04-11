@@ -26,16 +26,14 @@ the permission to can answer to the survey, so for recognise him, there is user 
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
-                        <!--
-                            <div>
-                                <p class="error margin-top">
-                                    Nom d'utilisateur ou mot de passe invalide
-                                </p>
-                                <p class="error">
-                                    Aucune entrée
-                                </p>
-                            </div>
-                        -->
+                        <div>
+                            <p *ngIf="error == 1" class="error margin-top">
+                                Nom d'utilisateur ou mot de passe invalide
+                            </p>
+                            <p *ngIf="error == 2" class="error margin-top">
+                                Aucune entrée
+                            </p>
+                        </div>
                         <button class="btn btn-primary btn-size margin-top" (click)="authentification()">
                             CONNEXION
                         </button>

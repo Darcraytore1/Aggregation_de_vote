@@ -1,59 +1,76 @@
 <!-- Here 2 solutions, the first is the creation of the survey with just
 	a json file, the second is the creation is the creation of a survey where user
 	can come and choose a answer, and when the admin choose he can finish this survey -->
+<div *ngIf="surveyResult == null">
+    <div class="container-fluid">
+        <div class="row align-center">
+            <div class="col-4">
+            </div>
+            <div class="col-4 text-center">
+                <h1 class="margin-top">
+                    Résultat de sondage pas fichier JSON
+                </h1>
+            </div>
+            <div class="col-4 text-right">
+                <a href="" class="margin-right">
+                    Retour
+                </a>
+            </div>
+        </div>
+        <div class="portfolio portfolio-block">
+            <div class="row">
+                <form enctype="multipart/form-data" action="" method="post">
+                    <div class="form-group">
+                        <p>
+                            Tu peux nous transmettre ton fichier et obtenir les résultats associé en fonction des
+                            des méthodes d'aggrégations que tu auras choisi.
+                        </p>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="300000"/>
+                        <input type="file" class="form-control-file" name="vote_list" accept=".json" (change)="handleFileInput($event)">
 
-<div class="container-fluid">
-    <div class="row align-center">
-        <div class="col-4">
-        </div>
-        <div class="col-4 text-center">
-            <h1 class="margin-top">
-                Résultat de sondage pas fichier JSON
-            </h1>
-        </div>
-        <div class="col-4 text-right">
-            <a href="" class="margin-right">
-                Retour
-            </a>
+                        <!-- I can directly create checkbox in function of methods who are in the API rather than in raw -->
+
+                        <div class="margin-top">
+                            <input type="checkbox" name="average_method" id="checkbox_average_method" class="little_margin-right" checked="true">
+                            <label for="checkbox_average_method">Average method</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" name="borda_method" id="checkbox_borda_method" class="little_margin-right" checked="true">
+                            <label for="checkbox_borda_method">Borda method</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" name="median_method" id="checkbox_median_method" class="little_margin-right" checked="true" [(ngModel)]="averageMethod">
+                            <label for="checkbox_median_method">Median method</label>
+                        </div>
+                    </div>
+                        <!--
+                        <p class="error">
+                            Aucun fichier sélectionné
+                        </p>
+                        -->
+                    <button class="btn btn-primary" (click)="getSurveyResult()">
+                        Give result
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-    <div class="portfolio portfolio-block">
+</div>
+<div *ngIf="surveyResult != null">
+    <div class="flex">
+        <div *ngFor="let survey of surveyResult">
+            <app-survey-result-displayer [surveyResult]="survey"></app-survey-result-displayer>
+        </div>
+    </div>
+    <div class="container">
         <div class="row">
-            <form enctype="multipart/form-data" action="" method="post">
-                <div class="form-group">
-                    <p>
-                        Tu peux nous transmettre ton fichier et obtenir les résultats associé en fonction des
-                        des méthodes d'aggrégations que tu auras choisi.
-                    </p>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="300000"/>
-                    <input type="file" class="form-control-file" name="vote_list" accept=".json" (change)="handleFileInput($event)">
-
-                    <!-- I can directly create checkbox in function of methods who are in the API rather than in raw -->
-
-                    <div class="margin-top">
-                        <input type="checkbox" name="average_method" id="checkbox_average_method" class="little_margin-right">
-                        <label for="checkbox_average_method">Average method</label>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" name="borda_method" id="checkbox_borda_method" class="little_margin-right">
-                        <label for="checkbox_borda_method">Borda method</label>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" name="median_method" id="checkbox_median_method" class="little_margin-right">
-                        <label for="checkbox_median_method">Median method</label>
-                    </div>
-                </div>
-                    <!--
-                    <p class="error">
-                        Aucun fichier sélectionné
-                    </p>
-                    -->
-                <button class="btn btn-primary" (click)="getSurveyResult()">
-                    Give result
+            <div class="col-12 text-center margin-top">
+                <button class="btn btn-primary" (click)="anotherSurveyResult()">
+                    Another Survey ?
                 </button>
-            </form>
+            </div>
         </div>
     </div>
 </div>

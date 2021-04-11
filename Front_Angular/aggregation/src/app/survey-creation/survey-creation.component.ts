@@ -1,3 +1,4 @@
+import { Survey } from './../Survey';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SurveyCreationComponent implements OnInit {
 
-  constructor() { }
+    survey: Survey = null
+    listChoice: Array<string> = new Array<string>()
 
-  ngOnInit(): void {
-  }
+    constructor() { }
+
+    ngOnInit(): void {
+    }
 
 }

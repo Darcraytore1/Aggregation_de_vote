@@ -1,6 +1,8 @@
 import { AuthentificationService } from './../authentification/authentification.service';
 import { Account, CreationAccount } from './../login/Account';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-creation',
@@ -10,16 +12,23 @@ import { Component, OnInit } from '@angular/core';
 export class AccountCreationComponent implements OnInit {
 
     account: CreationAccount = new CreationAccount("","","");
+    form = this.fb.group({
+        username: ['',Validators.required],
+        email: ['',Validators.email],
+        password: ['',Validators.required]
+    });
 
-    constructor() { }
+    constructor(private fb: FormBuilder, private router: Router) { }
 
     ngOnInit(): void {
     }
 
     accountCreation(): void {
+        this.account = new CreationAccount(this.form.value.username,this.form.value.password,this.form.value.email)
         let auth = new AuthentificationService()
         auth.accountCreation(this.account).then( succes => {
             console.log(succes)
+            this.router.navigate([""])
         })
     }
 }

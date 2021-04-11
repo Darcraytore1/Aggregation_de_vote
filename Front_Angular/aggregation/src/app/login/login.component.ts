@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
     account: Account = new LoginAccount("","");
+    error: number
 
     constructor() { }
 
@@ -23,8 +24,10 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem('accountType', "admin")
             } else if (isLogged == 2) {
                 localStorage.setItem('accountType', "user")
+            } else if (isLogged == -1) {
+                this.error = 1
             } else {
-                // Afficher les messages d'erreurs
+                this.error = 2
             }
         })
     }

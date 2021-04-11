@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { SurveyResult } from './SurveyResult';
 import { AggregationMethodsService } from './../aggregation-methods.service';
 import { Component, OnInit } from '@angular/core';
-import { ReadVarExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-survey-json',
@@ -10,7 +9,13 @@ import { ReadVarExpr } from '@angular/compiler';
 })
 export class SurveyJSONComponent implements OnInit {
 
+    // Faire en sorte que cela sorte des resultats differents en fonction des variables
+
     fileToSend: File = null
+    surveyResult: SurveyResult = null
+    averageMethod: Boolean = true
+    bordaMethod: Boolean = true
+    MedianMethod: Boolean = true
 
     constructor() { }
 
@@ -24,7 +29,14 @@ export class SurveyJSONComponent implements OnInit {
     getSurveyResult(): void {
         let agr = new AggregationMethodsService()
         agr.getFileContent(this.fileToSend).then(result => {
-            console.log(result)
+            agr.getSurveyResult(result).then( resultSurvey => {
+                this.surveyResult = resultSurvey
+                console.log(resultSurvey)
+            })
         })
+    }
+
+    anotherSurveyResult(): void {
+        this.surveyResult = null
     }
 }
