@@ -7,14 +7,16 @@ export class AggregationMethodsService {
 
     constructor() { }
 
-    async getFileContent(path: string): Promise<string> {
+    async getFileContent(survey: File): Promise<string> {
 
-        let result = await fetch(`http://127.0.0.1:8000/api/file-get-content?path=`+path,{
-            method: "GET",
+
+        let result = await fetch(`http://127.0.0.1:8000/api/file-get-content`,{
+            method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            }
+            },
+            body: survey
         });
 
         let json = await result.json()
@@ -22,12 +24,13 @@ export class AggregationMethodsService {
         return "prout";
     }
 
-    async getSurveyResult(survey: string): Promise<number> {
+    async getSurveyResult(survey: File): Promise<number> {
 
-        console.log(survey)
+        let url = "http://127.0.0.1:8000/api/aggregation-methods"
+        console.log(url)
 
-        let result = await fetch(`http://127.0.0.1:8000/api/aggregation-methods?survey=`+survey,{
-            method: "GET",
+        let result = await fetch(url,{
+            method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'

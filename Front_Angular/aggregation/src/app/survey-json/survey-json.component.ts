@@ -10,7 +10,7 @@ import { ReadVarExpr } from '@angular/compiler';
 })
 export class SurveyJSONComponent implements OnInit {
 
-    surveyJson: string = ""
+    fileToSend: File = null
 
     constructor() { }
 
@@ -18,13 +18,12 @@ export class SurveyJSONComponent implements OnInit {
     }
 
     handleFileInput(e): void {
-        let file = e.target.files[0]
-        console.log(file)
+        this.fileToSend = e.target.files[0]
     }
 
     getSurveyResult(): void {
         let agr = new AggregationMethodsService()
-        agr.getSurveyResult(this.surveyJson).then(result => {
+        agr.getFileContent(this.fileToSend).then(result => {
             console.log(result)
         })
     }
