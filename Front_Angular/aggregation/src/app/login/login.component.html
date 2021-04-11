@@ -1,53 +1,59 @@
 
 <!-- 2 accounts, user and admin, there is user account because user must to have
 the permission to can answer to the survey, so for recognise him, there is user account -->
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h1 class="margin-top">
-                Connexion
-            </h1>
+<div *ngIf="isLogged() == -1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="margin-top">
+                    Connexion
+                </h1>
+            </div>
+        </div>
+        <div class="portfolio portfolio-block">
+            <form method="POST" action="">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div>
+                            <label for="input_username" class="block">Nom d'utilisateur :</label>
+                            <input type="text" class="input-perso" name="username" id="input_username" [(ngModel)] = "account.login">
+                        </div>
+                        <div class="margin-top">
+                            <label for="input_password" class="block">Mot de passe :</label>
+                            <input type="password" class="input-perso" name="password" id="input_password" [(ngModel)] = "account.password">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <!--
+                            <div>
+                                <p class="error margin-top">
+                                    Nom d'utilisateur ou mot de passe invalide
+                                </p>
+                                <p class="error">
+                                    Aucune entrée
+                                </p>
+                            </div>
+                        -->
+                        <button class="btn btn-primary btn-size margin-top" (click)="authentification()">
+                            CONNEXION
+                        </button>
+                        <div class="alternative">
+                            <a href="user_sign_up.html" class="block">Inscription</a>
+                            <a href="" class="block">Mot de passe oublié</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="portfolio portfolio-block">
-        <form method="POST" action="">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div>
-                        <label for="input_username" class="block">Nom d'utilisateur :</label>
-                        <input type="text" class="input-perso" name="username" id="input_username" [(ngModel)] = "account.login">
-                    </div>
-                    <div class="margin-top">
-                        <label for="input_password" class="block">Mot de passe :</label>
-                        <input type="password" class="input-perso" name="password" id="input_password" [(ngModel)] = "account.password">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <!--
-                        <div>
-                            <p class="error margin-top">
-                                Nom d'utilisateur ou mot de passe invalide
-                            </p>
-                            <p class="error">
-                                Aucune entrée
-                            </p>
-                        </div>
-                    -->
-                    <button class="btn btn-primary btn-size margin-top" (click)="authentification()">
-                        CONNEXION
-                    </button>
-                    <div class="alternative">
-                        <a href="user_sign_up.html" class="block">Inscription</a>
-                        <a href="" class="block">Mot de passe oublié</a>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+    <footer>
+    </footer>
 </div>
-<footer>
-</footer>
-
+<div *ngIf="isLogged() == 1">
+    <app-admin-menu></app-admin-menu>
+</div>
+<div *ngIf="isLogged() == 2">
+    <app-user-menu></app-user-menu>
+</div>

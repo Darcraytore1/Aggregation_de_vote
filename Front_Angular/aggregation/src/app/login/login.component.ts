@@ -18,9 +18,20 @@ export class LoginComponent implements OnInit {
 
     authentification () {
         let auth = new AuthentificationService()
-        auth.authentificate(this.account.login,this.account.password).then ( isLoged => {
-            console.log(isLoged)
+        auth.authentificate(this.account.login,this.account.password).then ( isLogged => {
+            if (isLogged == 1) {
+                localStorage.setItem('accountType', "admin")
+            } else if (isLogged == 2) {
+                localStorage.setItem('accountType', "user")
+            } else {
+                // Afficher les messages d'erreurs
+            }
         })
     }
 
+    isLogged() : number {
+        if (localStorage.getItem('accountType') == null) return -1
+        if (localStorage.getItem('accountType') == "admin") return 1
+        return 2
+    }
 }

@@ -9,8 +9,11 @@ export class AuthentificationService {
 
   constructor() { }
 
-  async authentificate(login: string, password: string): Promise<Boolean> {
-    let result = await fetch(`http://127.0.0.1:8000/api/users`,{
+  async authentificate(login: string, password: string): Promise<number> {
+
+    let data = {'username' : login, 'password' : password}
+
+    let result = await fetch(`http://127.0.0.1:8000/api/find_user?username=` + login + "&password=" + password,{
         method: "GET",
         headers: {
             'Accept': 'application/json',
@@ -19,12 +22,7 @@ export class AuthentificationService {
     });
 
     let json = await result.json()
-    let obj = JSON.parse(json)
-    console.log(obj)
-    obj.forEach(user => {
-        if (login === user.login && password === user.password) return true
-    });
-
-    return false
+    if (json.isLogged == true) return json.type
+    return -1;
   }
 }
