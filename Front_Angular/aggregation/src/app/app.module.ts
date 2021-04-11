@@ -20,7 +20,8 @@ const appRoutes: Routes = [
     { path: 'account-creation', component: AccountCreationComponent },
     { path: 'survey-json', component: SurveyJSONComponent },
     { path: 'survey-menu', component: SurveyMenuComponent},
-    { path: 'vote',}
+    { path: 'vote', component: VoteComponent},
+    { path: 'survey-menu/survey-creation', component: SurveyCreationComponent}
 ]
 
 @NgModule({
