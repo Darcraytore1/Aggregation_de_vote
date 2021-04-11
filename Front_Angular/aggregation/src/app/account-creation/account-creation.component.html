@@ -12,25 +12,25 @@
                 <div class="col-12 text-center">
                     <div>
                         <label for="input_username" class="block">Nom d'utilisateur :</label>
-                        <input type="text" class="input-perso" name="username" id="input_username">
+                        <input type="text" class="input-perso" name="username" id="input_username" [(ngModel)]="account.login">
                     </div>
                     <div class="margin-top">
                         <label for="input_email" class="block">Email : </label>
-                        <input type="email" class="input-perso" name="mail" id="input_email">
+                        <input type="email" class="input-perso" name="mail" id="input_email" [(ngModel)]="account.email">
                     </div>
                     <div class="margin-top">
                         <label for="input_password" class="block">Mot de passe :</label>
-                        <input type="password" class="input-perso" name="password" id="input_password">
+                        <input type="password" class="input-perso" name="password" id="input_password" [(ngModel)]="account.password">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <button class="btn btn-primary btn-size margin-top">
+                    <button class="btn btn-primary btn-size margin-top" (click)="accountCreation()">
                         INSCRIPTION
                     </button>
                     <div class="alternative">
-                        <a href="" class="block" (click)="backToLogin()">Connexion</a>
+                        <a href="" class="block">Connexion</a>
                     </div>
                 </div>
             </div>

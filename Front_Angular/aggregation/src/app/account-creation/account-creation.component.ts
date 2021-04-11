@@ -1,3 +1,5 @@
+import { AuthentificationService } from './../authentification/authentification.service';
+import { Account, CreationAccount } from './../login/Account';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountCreationComponent implements OnInit {
 
+    account: CreationAccount = new CreationAccount("","","");
+
     constructor() { }
 
     ngOnInit(): void {
     }
 
-    backToLogin() {
-
+    accountCreation(): void {
+        let auth = new AuthentificationService()
+        auth.accountCreation(this.account).then( succes => {
+            console.log(succes)
+        })
     }
 }

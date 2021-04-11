@@ -10,10 +10,17 @@ import { SurveyComponent } from './survey/survey.component';
 import { UserMenuComponent } from './user-menu/user-menu.component';
 import { AccountCreationComponent } from './account-creation/account-creation.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SurveyJSONComponent } from './survey-json/survey-json.component';
+import { SurveyCreationComponent } from './survey-creation/survey-creation.component';
+import { SurveyMenuComponent } from './survey-menu/survey-menu.component';
+import { VoteComponent } from './vote/vote.component';
 
 const appRoutes: Routes = [
+    { path: '', component: LoginComponent },
     { path: 'account-creation', component: AccountCreationComponent },
-    { path: '', component: LoginComponent }
+    { path: 'survey-json', component: SurveyJSONComponent },
+    { path: 'survey-menu', component: SurveyMenuComponent},
+    { path: 'vote',}
 ]
 
 @NgModule({
@@ -23,7 +30,11 @@ const appRoutes: Routes = [
     AdminMenuComponent,
     SurveyComponent,
     UserMenuComponent,
-    AccountCreationComponent
+    AccountCreationComponent,
+    SurveyJSONComponent,
+    SurveyCreationComponent,
+    SurveyMenuComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,

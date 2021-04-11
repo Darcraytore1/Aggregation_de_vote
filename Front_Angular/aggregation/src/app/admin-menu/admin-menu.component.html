@@ -15,7 +15,7 @@
             </h1>
         </div>
         <div class="col-4 text-right">
-            <a href="index.php" class="margin-right">
+            <a href="" class="margin-right" (click)="logOut()">
                 Déconnexion
             </a>
         </div>
@@ -34,8 +34,8 @@
                         vous pourrez le cloturer et recevoir les résultats en fonction des
                         différentes méthodes d'aggrégations que nous proposons.
                     </p>
-                    <a href="admin_manage_surveys.php">
-                        <button class="btn btn-primary margin-top">
+                    <a href="">
+                        <button class="btn btn-primary margin-top" routerLink="/survey-menu" routerLinkActive="active">
                             Créer sondage
                         </button>
                     </a>
@@ -54,7 +54,7 @@
                         sondage donné, quand celui ci sera cloturé nous vous tiendront au
                         courant des résultats obtenus.
                     </p>
-                    <a href="survey_list.php">
+                    <a href="">
                         <button class="btn btn-primary margin-top">
                                 Voter
                         </button>
@@ -74,7 +74,7 @@
                         votre sondage, vous pouvez ici aussi choisir les méthodes d'aggrégations
                         que vous voulez qui sont présentes.
                     </p>
-                    <a href="result_survey_json.php">
+                    <a href="" routerLink="/survey-json" routerLinkActive="active">
                         <button class="btn btn-primary margin-top">
                             Sondage JSON
                         </button>
