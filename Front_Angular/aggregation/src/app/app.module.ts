@@ -9,6 +9,12 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { SurveyComponent } from './survey/survey.component';
 import { UserMenuComponent } from './user-menu/user-menu.component';
 import { AccountCreationComponent } from './account-creation/account-creation.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+    { path: 'account-creation', component: AccountCreationComponent },
+    { path: '', component: LoginComponent }
+]
 
 @NgModule({
   declarations: [
@@ -22,7 +28,8 @@ import { AccountCreationComponent } from './account-creation/account-creation.co
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: true, useHash: true, relativeLinkResolution: 'legacy'})
   ],
   providers: [],
   bootstrap: [AppComponent]
