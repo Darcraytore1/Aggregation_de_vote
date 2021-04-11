@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel='stylesheet' type='text/css' media='screen' href='styles/styles.css'>
 </head>
-<body>
+<body onload="init();">
 	<div class="container-fluid">
 		<div class="row align-center">
 			<div class="col-4">
@@ -33,13 +33,13 @@
 				</a>
 			</div>
 		</div>
-		<div class="row big-margin-top">
-			<div class="col-12 text-center">
-				<form method="POST" action="admin_survey_choice_creation.php">
+		<form action="send_survey_creation.php" method="post">
+			<div class="row big-margin-top">
+				<div class="col-12 text-center">
 					<div class="row">
 						<div class="col-12">
 							<label for="input_survey_name">Nom du sondage :</label>
-							<input type="text" name="survey_name" id="input_survey_name">
+							<input type="text" name="survey_name" id="input_survey_name" oninput="getname()">
 						</div>
 					</div>
 					<div class="row margin-top">
@@ -47,7 +47,20 @@
 							<div>
 								<label for="input_survey_description">Description du sondage :</label>
 							</div>
-							<textarea class="textarea" name="survey_description" id="input_survey_description"></textarea>
+							<textarea class="textarea" name="survey_description" id="input_survey_description" oninput="getdesc()"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<label for="input_survey_name">Choix :</label>
+							<input type="text" id="input_choice">
+							<a id="add" class="btn btn-primary" onClick="ajouter()">
+								Ajouter
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12" id="all_choices" name="all_choices">
 						</div>
 					</div>
 					<div class="row">
@@ -57,10 +70,11 @@
 								ENVOYER
 							</button>
 						</div>
-					</div>
-				</form>
+					</div>	
+				</div>
 			</div>
-		</div>
+		</form>
 	</div>
+	<script src="scripts/survey_creation.js"></script>
 </body>
 </html>
