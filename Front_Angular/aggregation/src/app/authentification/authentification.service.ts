@@ -30,11 +30,11 @@ export class AuthentificationService {
   async accountCreation(loginAccount: LoginAccount): Promise<Boolean> {
 
     let data = JSON.stringify(loginAccount)
+    console.log(data)
 
     let result = await fetch(`http://127.0.0.1:8000/api/create_account`,{
         method: "POST",
         headers: {
-            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: data

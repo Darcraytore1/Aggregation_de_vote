@@ -19,6 +19,7 @@ export class CreationAccount implements Account {
     login: string
     password: string
     email: string
+    type: number = 2
 
     constructor (login, password, email) {
         this.login = login;

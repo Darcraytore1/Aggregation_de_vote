@@ -17,16 +17,9 @@ export class SurveyJSONComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    handleFileInput(files: FileList): void {
-        let fileToUse = files.item(0)
-        let fileReader = new FileReader()
-        /*
-        let json: string | ArrayBuffer
-        fileReader.onload = function(event) {
-            json = fileReader.result
-        }
-        fileReader.readAsText(fileToUse)
-        */
+    handleFileInput(e): void {
+        let file = e.target.files[0]
+        console.log(file)
     }
 
     getSurveyResult(): void {
