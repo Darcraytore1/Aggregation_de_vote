@@ -10,7 +10,6 @@ export class AggregationMethodsService {
 
     async getFileContent(survey: File): Promise<string> {
 
-
         let result = await fetch(`http://127.0.0.1:8000/api/file-get-content`,{
             method: "POST",
             headers: {

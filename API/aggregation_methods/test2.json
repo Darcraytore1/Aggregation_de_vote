@@ -1,0 +1,4 @@
+[[{"choice": "toto", "grade": 0.94}, {"choice": "titi", "grade": 0.70}, {"choice": "tata", "grade": 0.5}],
+ [{"choice": "tata", "grade": 0.91}, {"choice": "toto", "grade": 0.50}, {"choice": "titi", "grade": 0.15}],
+ [{"choice": "titi", "grade": 1.0}, {"choice": "toto", "grade": 0.25}, {"choice": "tata", "grade": 0.0}],
+ [{"choice": "titi", "grade": 1.0}, {"choice": "toto", "grade": 0.25}, {"choice": "tata", "grade": 0.0}]]

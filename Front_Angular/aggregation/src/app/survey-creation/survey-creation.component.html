@@ -13,45 +13,43 @@
             </a>
         </div>
     </div>
-    <form action="send_survey_creation.php" method="post">
-        <div class="row big-margin-top">
-            <div class="col-12 text-center">
-                <div class="row">
-                    <div class="col-12">
-                        <label for="input_survey_name" class="small-margin-right">Nom du sondage :</label>
-                        <input type="text" name="survey_name" id="input_survey_name" oninput="getname()">
-                    </div>
+    <div class="row big-margin-top">
+        <div class="col-12 text-center">
+            <div class="row">
+                <div class="col-12">
+                    <label for="input_survey_name" class="small-margin-right">Nom du sondage :</label>
+                    <input type="text" id="input_survey_name" [(ngModel)]="survey.name">
                 </div>
-                <div class="row margin-top">
-                    <div class="col-12">
-                        <div>
-                            <label for="input_survey_description">Description du sondage :</label>
-                        </div>
-                        <textarea class="textarea" name="survey_description" id="input_survey_description" oninput="getdesc()"></textarea>
+            </div>
+            <div class="row margin-top">
+                <div class="col-12">
+                    <div>
+                        <label for="input_survey_description">Description du sondage :</label>
                     </div>
+                    <textarea class="textarea" name="survey_description" id="input_survey_description" [(ngModel)]="survey.description"></textarea>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <label for="input_survey_name" class="small-margin-right">Choix :</label>
-                        <input type="text" id="input_choice" class="small-margin-right">
-                        <a id="add" class="btn btn-primary" onClick="ajouter()">
-                            Ajouter
-                        </a>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="input_survey_name" class="small-margin-right">Choix :</label>
+                    <input type="text" id="input_choice" class="small-margin-right" [(ngModel)]="choice">
+                    <a id="add" class="btn btn-primary" (click)="add($event)">
+                        Ajouter
+                    </a>
                 </div>
-                <div class="row">
-                    <div class="col-12" id="all_choices" name="all_choices">
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-12" id="all_choices" name="all_choices">
                 </div>
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <br>
-                        <button id="send" class="btn btn-primary" type="submit">
-                            ENVOYER
-                        </button>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <br>
+                    <button id="send" class="btn btn-primary" type="submit" (click)="sendSurvey()">
+                        ENVOYER
+                    </button>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </div>

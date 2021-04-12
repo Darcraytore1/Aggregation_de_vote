@@ -16,6 +16,7 @@ import { SurveyMenuComponent } from './survey-menu/survey-menu.component';
 import { VoteComponent } from './vote/vote.component';
 import { SurveyDisplayerComponent } from './survey-displayer/survey-displayer.component';
 import { SurveyResultDisplayerComponent } from './survey-result-displayer/survey-result-displayer.component';
+import { SurveyListComponent } from './survey-list/survey-list.component';
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     SurveyMenuComponent,
     VoteComponent,
     SurveyDisplayerComponent,
-    SurveyResultDisplayerComponent
+    SurveyResultDisplayerComponent,
+    SurveyListComponent
   ],
   imports: [
     BrowserModule,
