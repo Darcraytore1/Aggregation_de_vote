@@ -1,1 +1,9 @@
-<button (click)="getSurveys()">Surveys</button>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <h2>Name : {{survey.name}}</h2>
+            <p class="description">Description : {{survey.description}}</p>
+        </div>
+        <button (click)="vote()" class="btn btn-primary">Voter</button>
+    </div>
+</div>

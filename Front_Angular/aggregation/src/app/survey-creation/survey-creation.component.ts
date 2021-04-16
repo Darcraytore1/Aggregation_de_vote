@@ -27,21 +27,16 @@ export class SurveyCreationComponent implements OnInit {
 
     add(e): void {
 
-        if (!this.listChoice.includes(this.choice)){
+        if (!this.listChoice.includes(this.choice) && this.choice !== ""){
 
             let allChoices = document.getElementById("all_choices");
 
             let i = 0
 
             i = i+1;
-            let input = document.createElement("input");
-            input.id = 'choice' + i;
-            input.name = "choice[]";
-            input.value = this.choice;
-            input.type = "checkbox";
 
             let label = document.createElement("label");
-            label.innerHTML = this.choice + '<button id="button' + i + '" type="button" class="close margin-left" aria-label="Close" (click)="remove('+i+')"><span aria-hidden="true">&times;</span></button>';
+            label.innerHTML = this.choice + '<button id="button' + i + '" type="button" class="close margin-left" aria-label="Close" onClick="remove('+i+')"><span aria-hidden="true">&times;</span></button>';
             label.id = 'label' + i;
 
             let br = document.createElement("br");
@@ -63,7 +58,8 @@ export class SurveyCreationComponent implements OnInit {
 
     sendSurvey(): void {
         let surveyService = new SurveyService()
-        surveyService.createSurvey(this.survey, this.listChoice).then( result => {
+        let id_user = parseInt(localStorage.getItem("id"));
+        surveyService.createSurvey(this.survey, this.listChoice, id_user).then( result => {
             this.isCreated = result
         })
     }

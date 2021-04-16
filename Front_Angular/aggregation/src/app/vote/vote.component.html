@@ -1,0 +1,18 @@
+<div *ngIf="isLoaded == false">
+    {{loadSurveyAndChoice()}}
+</div>
+<div *ngIf="isLoaded == true">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Vous pouvez voter pour le sondage {{survey.name}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                Description : {{survey.description}}
+            </p>
+        </div>
+    </div>
+    <app-choice-list [choices] = "choices"></app-choice-list>
+</div>

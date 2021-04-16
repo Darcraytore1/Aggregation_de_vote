@@ -1,3 +1,5 @@
+import { Survey } from './../Survey';
+import { SurveyService } from './../survey.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SurveyListComponent implements OnInit {
 
-  constructor() { }
+    surveyList: Array<Survey> = null
+    isCreated: boolean = false
+    constructor() { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
+    getSurveyList(): void {
+        if (this.isCreated == false) {
+            let surveyService = new SurveyService()
+            surveyService.getSurveys().then( result => {
+                this.surveyList = result
+                this.isCreated = true
+            })
+        }
+    }
 }

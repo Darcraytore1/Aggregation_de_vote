@@ -17,6 +17,8 @@ import { VoteComponent } from './vote/vote.component';
 import { SurveyDisplayerComponent } from './survey-displayer/survey-displayer.component';
 import { SurveyResultDisplayerComponent } from './survey-result-displayer/survey-result-displayer.component';
 import { SurveyListComponent } from './survey-list/survey-list.component';
+import { ChoiceComponent } from './choice/choice.component';
+import { ChoiceListComponent } from './choice-list/choice-list.component';
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
@@ -24,7 +26,9 @@ const appRoutes: Routes = [
     { path: 'survey-json', component: SurveyJSONComponent },
     { path: 'survey-menu', component: SurveyMenuComponent},
     { path: 'vote', component: VoteComponent},
-    { path: 'survey-menu/survey-creation', component: SurveyCreationComponent}
+    { path: 'survey-menu/survey-creation', component: SurveyCreationComponent},
+    { path: 'survey-list', component: SurveyListComponent},
+    { path: 'vote', component: VoteComponent }
 ]
 
 @NgModule({
@@ -41,7 +45,9 @@ const appRoutes: Routes = [
     VoteComponent,
     SurveyDisplayerComponent,
     SurveyResultDisplayerComponent,
-    SurveyListComponent
+    SurveyListComponent,
+    ChoiceComponent,
+    ChoiceListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,23 +1,24 @@
-import { SurveyService } from './../survey.service';
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Survey } from './../Survey';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-survey',
-  templateUrl: './survey.component.html',
-  styleUrls: ['./survey.component.css']
+    selector: 'app-survey',
+    templateUrl: './survey.component.html',
+    styleUrls: ['./survey.component.css']
 })
 export class SurveyComponent implements OnInit {
 
-  constructor() { }
+	@Input() survey: Survey = null;
 
-  ngOnInit(): void {
-  }
+	constructor(private router: Router) { }
 
-  async getSurveys() {
-    let surveyService = new SurveyService()
-    let survey = surveyService.getSurvey().then ( survey => {
-        console.log(survey)
-    })
-  }
+	ngOnInit(): void {
+	}
 
+    vote(): void {
+        let jsonSurvey = JSON.stringify(this.survey)
+        localStorage.setItem("survey", jsonSurvey);
+        this.router.navigate(['vote']);
+    }
 }

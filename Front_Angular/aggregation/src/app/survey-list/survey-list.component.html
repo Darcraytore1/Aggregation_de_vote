@@ -1,1 +1,8 @@
-<p>survey-list works!</p>
+<div *ngIf="isCreated == false">
+    {{ getSurveyList() }}
+</div>
+<div *ngIf="isCreated == true">
+    <div *ngFor="let survey of surveyList">
+        <app-survey [survey] = "survey"></app-survey>
+    </div>
+</div>
