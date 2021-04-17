@@ -1,3 +1,4 @@
+import { SurveyResult } from './../SurveyResult';
 import { SurveyService } from './../survey.service';
 import { Component, OnInit } from '@angular/core';
 import { Survey } from '../Survey';
@@ -12,6 +13,7 @@ export class SurveyManagerComponent implements OnInit {
     // Les surveys que l'admin a cree
     surveys: Array<Survey>
     isLoaded: boolean = false
+    surveyResult: SurveyResult = null
 
     constructor() { }
 
@@ -23,12 +25,11 @@ export class SurveyManagerComponent implements OnInit {
         let surveyService = new SurveyService();
         surveyService.getAdminSurveys(idAdmin).then( result => {
             this.surveys = result
-            console.log(this.surveys)
             this.isLoaded = true
         })
     }
 
-    result(): void {
-        
+    OnNotifyClicked(surveyResult: SurveyResult): void {
+        this.surveyResult = surveyResult
     }
 }

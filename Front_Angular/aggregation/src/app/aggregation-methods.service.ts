@@ -1,4 +1,4 @@
-import { SurveyResult } from './survey-json/SurveyResult';
+import { SurveyResult } from './SurveyResult';
 import { Injectable } from '@angular/core';
 
 @Injectable({

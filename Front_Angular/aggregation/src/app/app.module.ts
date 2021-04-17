@@ -14,12 +14,12 @@ import { SurveyJSONComponent } from './survey-json/survey-json.component';
 import { SurveyCreationComponent } from './survey-creation/survey-creation.component';
 import { SurveyMenuComponent } from './survey-menu/survey-menu.component';
 import { VoteComponent } from './vote/vote.component';
-import { SurveyDisplayerComponent } from './survey-displayer/survey-displayer.component';
 import { SurveyResultDisplayerComponent } from './survey-result-displayer/survey-result-displayer.component';
 import { SurveyListComponent } from './survey-list/survey-list.component';
 import { ChoiceComponent } from './choice/choice.component';
 import { ChoiceListComponent } from './choice-list/choice-list.component';
 import { SurveyManagerComponent } from './survey-manager/survey-manager.component';
+import { SurveyManagerSurveyDisplayerComponent } from './survey-manager-survey-displayer/survey-manager-survey-displayer.component';
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
@@ -45,12 +45,12 @@ const appRoutes: Routes = [
     SurveyCreationComponent,
     SurveyMenuComponent,
     VoteComponent,
-    SurveyDisplayerComponent,
     SurveyResultDisplayerComponent,
     SurveyListComponent,
     ChoiceComponent,
     ChoiceListComponent,
-    SurveyManagerComponent
+    SurveyManagerComponent,
+    SurveyManagerSurveyDisplayerComponent
   ],
   imports: [
     BrowserModule,

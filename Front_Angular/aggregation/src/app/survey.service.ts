@@ -1,3 +1,4 @@
+import { Vote } from './Vote';
 import { Survey } from './Survey';
 import { Injectable } from '@angular/core';
 import { Choice } from './Choice';
@@ -9,8 +10,18 @@ export class SurveyService {
 
     constructor() { }
 
-    async getVoteNote(idSurvey:number): Promise<> {
-        
+    async getVoteNote(idSurvey:number): Promise<Array<Vote>> {
+
+        let result = await fetch(`http://127.0.0.1:8000/api/get-vote-note?idSurvey=` + idSurvey,{
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+
+        let json = await result.json()
+        return json
     }
 
     async getAdminSurveys(idUser: number): Promise<Array<Survey>> {

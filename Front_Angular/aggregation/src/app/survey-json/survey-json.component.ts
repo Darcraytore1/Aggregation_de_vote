@@ -1,6 +1,6 @@
-import { SurveyResult } from './SurveyResult';
+import { SurveyResult } from './../SurveyResult';
 import { AggregationMethodsService } from './../aggregation-methods.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-survey-json',
@@ -12,7 +12,7 @@ export class SurveyJSONComponent implements OnInit {
     // Faire en sorte que cela sorte des resultats differents en fonction des variables
 
     fileToSend: File = null
-    surveyResult: SurveyResult = null
+    @Input() surveyResult: SurveyResult = null
     averageMethod: Boolean = true
     bordaMethod: Boolean = true
     MedianMethod: Boolean = true
