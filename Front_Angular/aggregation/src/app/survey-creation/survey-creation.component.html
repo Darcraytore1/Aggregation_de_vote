@@ -38,6 +38,9 @@
                     </a>
                 </div>
             </div>
+            <!--
+                Ici ajouter une box box
+            -->
             <div class="row">
                 <div class="col-12" id="all_choices" name="all_choices">
                 </div>
@@ -48,6 +51,12 @@
                     <button id="send" class="btn btn-primary" type="submit" (click)="sendSurvey()">
                         ENVOYER
                     </button>
+                    <p *ngIf="isCreated && successMessage !== ''" class="success margin-top">
+                        {{successMessage}}
+                    </p>
+                    <p *ngIf="!isCreated && successMessage !== ''" class="error margin-top">
+                        {{successMessage}}
+                    </p>
                 </div>
             </div>
         </div>

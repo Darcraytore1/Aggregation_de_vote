@@ -83,12 +83,23 @@ body {
 	margin-top: 2vh;
 }
 
+.margin-bottom {
+	margin-bottom: 6vh;
+}
+
+
 .block {
 	display: block;
 }
 
 p.error {
 	color:#c33;
+	font-size: 80%;
+	margin-bottom: 0;
+}
+
+p.success {
+    color:#3F9510;
 	font-size: 80%;
 	margin-bottom: 0;
 }

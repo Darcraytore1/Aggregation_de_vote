@@ -4,6 +4,11 @@
             <h2>Name : {{survey.name}}</h2>
             <p class="description">Description : {{survey.description}}</p>
         </div>
-        <button (click)="result()" class="btn btn-primary">Resultat</button>
+        <div *ngIf="survey.isActive == false">
+            <button (click)="result()" class="btn btn-primary">Resultat</button>
+        </div>
+        <div *ngIf="survey.isActive == true">
+            <button (click)="closeSurvey()" class="btn btn-warning">Clore le sondage</button>
+        </div>
     </div>
 </div>

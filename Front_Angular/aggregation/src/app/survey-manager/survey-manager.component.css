@@ -1,3 +1,8 @@
 .description {
     font-size: 18px;
 }
+
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+}

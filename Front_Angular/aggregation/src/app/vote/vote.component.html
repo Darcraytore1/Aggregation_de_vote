@@ -2,17 +2,25 @@
     {{loadSurveyAndChoice()}}
 </div>
 <div *ngIf="isLoaded == true">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2>Vous pouvez voter pour le sondage {{survey.name}}</h2>
-            </div>
+<div class="container-fluid">
+    <div class="row align-center">
+        <div class="col-4">
         </div>
-        <div class="row">
-            <p>
-                Description : {{survey.description}}
-            </p>
+        <div class="col-4 text-center">
+            <h2 class="margin-top">
+                Vous pouvez voter pour le sondage {{survey.name}}
+            </h2>
         </div>
+        <div class="col-4 text-right">
+            <a href="" class="margin-right" routerLink=".." routerLinkActive="active">
+                Retour
+            </a>
+        </div>
+    </div>
+    <div class="row margin-left">
+        <p>
+            Description : {{survey.description}}
+        </p>
     </div>
     <app-choice-list [choices] = "choices"></app-choice-list>
 </div>

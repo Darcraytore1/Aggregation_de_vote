@@ -1,4 +1,14 @@
-<div *ngFor="let choice of choices">
-    <app-choice [choice] = "choice"></app-choice>
+<div class="margin-left">
+    <div *ngFor="let choice of choices">
+        <app-choice [choice] = "choice"></app-choice>
+    </div>
+    <div class="margin-top">
+        <button type='submit' class="btn btn-primary" (click)="sendVote()">ENVOYER VOTE</button>
+    </div>
+    <p *ngIf="isVoted && successMessage !== ''" class="success margin-top">
+        Votre vote a bien été compté
+    </p>
+    <p *ngIf="!isVoted && successMessage !== ''" class="error margin-top">
+        Votre vote n'a pas été compté pour une raison ou une autre
+    </p>
 </div>
-<button type='submit' class="btn btn-primary" (click)="sendVote()">ENVOYER VOTE</button>

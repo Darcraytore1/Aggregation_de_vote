@@ -10,10 +10,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SurveyCreationComponent implements OnInit {
 
-    survey: Survey = new Survey("","")
+    survey: Survey = new Survey("","",true)
     listChoice: Array<string> = new Array<string>()
     choice: string = ""
-    isCreated: Boolean = null
+    isCreated: boolean = false
+    successMessage: string = ""
     form = this.fb.group({
         username: ['',Validators.required],
         email: ['',Validators.email],
@@ -61,6 +62,9 @@ export class SurveyCreationComponent implements OnInit {
         let id_user = parseInt(localStorage.getItem("id"));
         surveyService.createSurvey(this.survey, this.listChoice, id_user).then( result => {
             this.isCreated = result
+            if (this.isCreated) this.successMessage = "Votre sondage a bien été créé"
+            else this.successMessage = "Votre sondage n'a pas pu être créé pour une raison ou une autre"
         })
     }
+
 }

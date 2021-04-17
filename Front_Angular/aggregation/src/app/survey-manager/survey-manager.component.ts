@@ -29,7 +29,12 @@ export class SurveyManagerComponent implements OnInit {
         })
     }
 
-    OnNotifyClicked(surveyResult: SurveyResult): void {
+    onNotifyClicked(surveyResult: SurveyResult): void {
         this.surveyResult = surveyResult
+        console.log(this.surveyResult)
+    }
+
+    anotherSurveyResult(): void {
+        this.surveyResult = null
     }
 }

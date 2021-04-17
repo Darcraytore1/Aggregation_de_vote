@@ -10,6 +10,24 @@ export class SurveyService {
 
     constructor() { }
 
+    async closeSurvey(idSurvey:number): Promise<boolean> {
+
+        let data = '{ "idSurvey" :' + idSurvey + '}'
+
+
+        let result = await fetch(`http://127.0.0.1:8000/api/close-survey`,{
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: data
+        });
+
+        let json = await result.json()
+        return json
+    }
+
     async getVoteNote(idSurvey:number): Promise<Array<Vote>> {
 
         let result = await fetch(`http://127.0.0.1:8000/api/get-vote-note?idSurvey=` + idSurvey,{
@@ -39,7 +57,7 @@ export class SurveyService {
 
     }
 
-    async vote(surveyId: number, voteList, idUser: number): Promise<Boolean> {
+    async vote(surveyId: number, voteList, idUser: number): Promise<boolean> {
 
         let data = '{"idSurvey":' + surveyId + ',"vote":' + JSON.stringify(voteList) + ',"idUser":' + idUser + '}';
         console.log(data)
@@ -75,7 +93,7 @@ export class SurveyService {
     }
 
   async getSurveys(): Promise<Array<Survey>> {
-        let result = await fetch(`http://127.0.0.1:8000/api/surveys`,{
+        let result = await fetch(`http://127.0.0.1:8000/api/get-surveys`,{
             method: "GET",
             headers: {
                 'Accept': 'application/json',
@@ -87,11 +105,10 @@ export class SurveyService {
         return json
   }
 
-    async createSurvey(survey: Survey, listChoice: Array<string>, id_user: number): Promise<Boolean> {
+    async createSurvey(survey: Survey, listChoice: Array<string>, id_user: number): Promise<boolean> {
 
         let data = JSON.stringify(survey);
         let data2 = '{"survey":' + data + ',"listChoice":' + JSON.stringify(listChoice) + ',"idUser":' + JSON.stringify(id_user) + '}';
-        console.log(data2)
 
         let result = await fetch(`http://127.0.0.1:8000/api/create-survey`,{
             method: "POST",

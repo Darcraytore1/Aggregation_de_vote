@@ -1,3 +1,4 @@
+import { SurveyResult } from './../SurveyResult';
 import { Survey } from './../Survey';
 import { SurveyService } from './../survey.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,6 +12,8 @@ export class SurveyListComponent implements OnInit {
 
     surveyList: Array<Survey> = null
     isCreated: boolean = false
+    surveyResult: SurveyResult = null
+
     constructor() { }
 
     ngOnInit(): void {
@@ -24,5 +27,17 @@ export class SurveyListComponent implements OnInit {
                 this.isCreated = true
             })
         }
+    }
+
+    onNotifyClicked(surveyResult: SurveyResult): void {
+        this.surveyResult = surveyResult
+    }
+
+    anotherSurveyResult(): void {
+        this.surveyResult = null
+    }
+
+    logSurveyResult(): void {
+        console.log(this.surveyResult)
     }
 }

@@ -1,11 +1,40 @@
-<div *ngIf="isLoaded == false">
-    {{loadSurvey()}}
-</div>
-<div *ngIf="isLoaded == true && surveyResult == null">
-    <div *ngFor="let survey of surveys">
-        <app-survey-manager-survey-displayer [survey]="survey" (notify)=OnNotifyClicked($event)></app-survey-manager-survey-displayer>
+<div class="container-fluid">
+    <div class="row align-center margin-bottom">
+        <div class="col-4">
+        </div>
+        <div class="col-4 text-center">
+            <h1 class="margin-top">
+                Gestion de vos sondages
+            </h1>
+        </div>
+        <div class="col-4 text-right">
+            <a href="" class="margin-right">
+                Retour
+            </a>
+        </div>
     </div>
-</div>
-<div *ngIf="surveyResult != null">
-
+    <div *ngIf="isLoaded == false">
+        {{loadSurvey()}}
+    </div>
+    <div *ngIf="isLoaded == true && surveyResult == null">
+        <div *ngFor="let survey of surveys">
+            <app-survey-manager-survey-displayer [survey]="survey" (notify)=onNotifyClicked($event)></app-survey-manager-survey-displayer>
+        </div>
+    </div>
+    <div *ngIf="surveyResult != null">
+        <div class="flex">
+            <div *ngFor="let survey of surveyResult">
+                <app-survey-result-displayer [surveyResult]="survey"></app-survey-result-displayer>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center margin-top">
+                    <button class="btn btn-primary" (click)="anotherSurveyResult()">
+                        Another Survey ?
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

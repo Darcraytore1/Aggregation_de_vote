@@ -12,6 +12,8 @@ export class ChoiceListComponent implements OnInit {
 
     @Input() choices: Array<Choice> = null
     @ViewChildren (ChoiceComponent) sons: QueryList<ChoiceComponent> | undefined
+    isVoted: boolean = false
+    successMessage: string = ""
 
     constructor() { }
 
@@ -37,7 +39,9 @@ export class ChoiceListComponent implements OnInit {
         })
 
         surveyService.vote(surveyId, voteList, userId).then( result => {
-            console.log(result)
+            this.isVoted = result
+            if(this.isVoted) this.successMessage = "Votre vote a bien été compté"
+            else this.successMessage = "Votre vote n'a pas été compté pour une raison ou une autre"
         })
     }
 }

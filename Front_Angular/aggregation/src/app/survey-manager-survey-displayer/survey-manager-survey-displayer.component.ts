@@ -32,4 +32,13 @@ export class SurveyManagerSurveyDisplayerComponent implements OnInit {
             })
         })
     }
+
+    closeSurvey(): void {
+        let surveyService = new SurveyService();
+
+        surveyService.closeSurvey(this.survey.id).then( result => {
+            this.survey.isActive = false
+            console.log(result)
+        })
+    }
 }
