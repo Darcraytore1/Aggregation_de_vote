@@ -59,10 +59,8 @@
     </div>
 </div>
 <div *ngIf="surveyResult != null">
-    <div class="flex">
-        <div *ngFor="let survey of surveyResult">
-            <app-survey-result-displayer [surveyResult]="survey"></app-survey-result-displayer>
-        </div>
+    <div *ngFor="let survey of surveyResult">
+        <app-survey-result-displayer [surveyResult]="survey"></app-survey-result-displayer>
     </div>
     <div class="container">
         <div class="row">
@@ -73,4 +71,7 @@
             </div>
         </div>
     </div>
+</div>
+<div class="margin-top">
+
 </div>
