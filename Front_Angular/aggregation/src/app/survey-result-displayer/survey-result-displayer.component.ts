@@ -1,4 +1,4 @@
-import { SurveyResult } from './../survey-json/SurveyResult';
+import { SurveyResult } from './../SurveyResult';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./survey-result-displayer.component.css']
 })
 export class SurveyResultDisplayerComponent implements OnInit {
-
+	
     @Input() surveyResult: SurveyResult = null
 
     constructor() { }

@@ -21,6 +21,10 @@ export class ChoiceListComponent implements OnInit {
     sendVote(): void {
         let jsonSurvey = localStorage.getItem('idSurvey')
         let surveyId = parseInt(JSON.parse(jsonSurvey))
+
+        let jsonUserId = localStorage.getItem('id')
+        let userId = parseInt(JSON.parse(jsonUserId))
+
         let surveyService = new SurveyService()
         let voteList = []
         let idChoice: number
@@ -32,7 +36,7 @@ export class ChoiceListComponent implements OnInit {
             voteList.push({"idChoice" : idChoice, "note" : note})
         })
 
-        surveyService.vote(surveyId, voteList).then( result => {
+        surveyService.vote(surveyId, voteList, userId).then( result => {
             console.log(result)
         })
     }

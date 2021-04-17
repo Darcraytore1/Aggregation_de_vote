@@ -9,6 +9,10 @@ export class SurveyService {
 
     constructor() { }
 
+    async getVoteNote(idSurvey:number): Promise<> {
+        
+    }
+
     async getAdminSurveys(idUser: number): Promise<Array<Survey>> {
 
         let result = await fetch(`http://127.0.0.1:8000/api/get-admin-survey?idUser=` + idUser,{
@@ -24,9 +28,9 @@ export class SurveyService {
 
     }
 
-    async vote(surveyId: number, voteList): Promise<Boolean> {
+    async vote(surveyId: number, voteList, idUser: number): Promise<Boolean> {
 
-        let data = '{"idSurvey":' + surveyId + ',"vote":' + JSON.stringify(voteList) + '}';
+        let data = '{"idSurvey":' + surveyId + ',"vote":' + JSON.stringify(voteList) + ',"idUser":' + idUser + '}';
         console.log(data)
 
         let result = await fetch(`http://127.0.0.1:8000/api/send-vote`,{

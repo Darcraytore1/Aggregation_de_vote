@@ -27,4 +27,8 @@ export class SurveyManagerComponent implements OnInit {
             this.isLoaded = true
         })
     }
+
+    result(): void {
+        
+    }
 }
