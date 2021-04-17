@@ -1,0 +1,16 @@
+<div *ngIf="isLoaded == false">
+    {{loadSurvey()}}
+</div>
+<div *ngIf="isLoaded == true">
+    <div *ngFor="let survey of surveys">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Name : {{survey.name}}</h2>
+                    <p class="description">Description : {{survey.description}}</p>
+                </div>
+                <button (click)="vote()" class="btn btn-primary">Resultat</button>
+            </div>
+        </div>
+    </div>
+</div>
