@@ -26,35 +26,15 @@ export class SurveyCreationComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    add(e): void {
-
-        if (!this.listChoice.includes(this.choice) && this.choice !== ""){
-
-            let allChoices = document.getElementById("all_choices");
-
-            let i = 0
-
-            i = i+1;
-
-            let label = document.createElement("label");
-            label.innerHTML = this.choice + '<button id="button' + i + '" type="button" class="close margin-left" aria-label="Close" onClick="remove('+i+')"><span aria-hidden="true">&times;</span></button>';
-            label.id = 'label' + i;
-
-            let br = document.createElement("br");
-            br.id = 'br' + i;
-
-
-            allChoices.appendChild(label);
-            allChoices.appendChild(br);
-
-            /*
-            localStorage.setItem("index","" + i);
-            localStorage.setItem(allChoices.id, allChoices.innerHTML);
-            */
-
+    add(): void {
+        if (this.choice !== "" && !this.listChoice.includes(this.choice)) {
             this.listChoice.push(this.choice)
-            console.log(this.listChoice)
         }
+    }
+
+    remove(choice: string): void {
+        let index: number = this.listChoice.indexOf(choice)
+        this.listChoice.splice(index,1)
     }
 
     sendSurvey(): void {
@@ -66,5 +46,4 @@ export class SurveyCreationComponent implements OnInit {
             else this.successMessage = "Votre sondage n'a pas pu être créé pour une raison ou une autre"
         })
     }
-
 }

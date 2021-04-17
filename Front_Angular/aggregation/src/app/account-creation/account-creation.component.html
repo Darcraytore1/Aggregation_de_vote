@@ -32,6 +32,9 @@
                     <div class="alternative">
                         <a href="" class="block">Connexion</a>
                     </div>
+                    <p *ngIf="!success" class="error margin-top">
+                        Un compte possèdant deja ce mail, ce login ou ce mot de passe existe déjà
+                    </p>
                 </div>
             </div>
         </form>

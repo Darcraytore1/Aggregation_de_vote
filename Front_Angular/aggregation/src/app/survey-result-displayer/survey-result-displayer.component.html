@@ -1,6 +1,15 @@
-<h2>{{surveyResult.agregator}}</h2>
-<div *ngFor="let key of getDetailKeys()">
-    {{key}} : {{surveyResult.details[key]}}
+<div class="portfolio portfolio-survey">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 class="italic">{{surveyResult.agregator}}</h2>
+        </div>
+    </div>
+    <h4>Classement :</h4>
+    <div class="margin-left margin-top" *ngFor="let key of getDetailKeys()">
+        <label class="classement-number">{{counter}} - </label>
+        {{key}} : {{surveyResult.details[key]}}
+        {{incCounter()}}
+    </div>
 </div>
 
 

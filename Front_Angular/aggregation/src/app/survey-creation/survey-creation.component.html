@@ -33,16 +33,21 @@
                 <div class="col-12">
                     <label for="input_survey_name" class="small-margin-right">Choix :</label>
                     <input type="text" id="input_choice" class="small-margin-right" [(ngModel)]="choice">
-                    <a id="add" class="btn btn-primary" (click)="add($event)">
+                    <button id="add" class="btn btn-primary" (click)="add()">
                         Ajouter
-                    </a>
+                    </button>
                 </div>
             </div>
-            <!--
-                Ici ajouter une box box
-            -->
-            <div class="row">
-                <div class="col-12" id="all_choices" name="all_choices">
+            <div *ngIf="listChoice.length != 0">
+                <div class="portfolio portfolio-block-bis">
+                    <div class="row">
+                        <div class="col-12 text-center" id="all_choices" name="all_choices">
+                            <div *ngFor="let choice of listChoice">
+                                <label>{{choice}}</label>
+                                <button class="close" aria-label="Close" (click)="remove(choice)"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">

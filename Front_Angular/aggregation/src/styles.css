@@ -28,6 +28,20 @@ body {
 	padding: 5vh;
 }
 
+.portfolio-block-bis {
+    margin: auto;
+	width: 30%;
+	margin-top: 2vh;
+	padding: 5vh;
+}
+
+.portfolio-survey {
+    margin: auto;
+	width: 90%;
+	margin-top: 2vh;
+	padding: 5vh;
+}
+
 .portfolio-list {
 	margin-top: 18vh;
 	display: flex;
@@ -136,7 +150,7 @@ p.success {
 }
 
 .big-margin-top {
-	margin-top: 25vh;
+	margin-top: 15vh;
 }
 
 .textarea {

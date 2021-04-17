@@ -7,8 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./survey-result-displayer.component.css']
 })
 export class SurveyResultDisplayerComponent implements OnInit {
-	
+
     @Input() surveyResult: SurveyResult = null
+    counter: number = 1
 
     constructor() { }
 
@@ -17,5 +18,9 @@ export class SurveyResultDisplayerComponent implements OnInit {
 
     getDetailKeys() {
         return Object.keys(this.surveyResult.details)
+    }
+
+    incCounter() {
+        this.counter ++
     }
 }

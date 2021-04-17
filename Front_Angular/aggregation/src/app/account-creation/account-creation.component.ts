@@ -5,13 +5,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-account-creation',
-  templateUrl: './account-creation.component.html',
-  styleUrls: ['./account-creation.component.css']
+    selector: 'app-account-creation',
+    templateUrl: './account-creation.component.html',
+    styleUrls: ['./account-creation.component.css']
 })
 export class AccountCreationComponent implements OnInit {
 
     account: CreationAccount = new CreationAccount("","","");
+    success: boolean = true
     form = this.fb.group({
         username: ['',Validators.required],
         email: ['',Validators.email],
@@ -26,9 +27,8 @@ export class AccountCreationComponent implements OnInit {
     accountCreation(): void {
         this.account = new CreationAccount(this.form.value.username,this.form.value.password,this.form.value.email)
         let auth = new AuthentificationService()
-        auth.accountCreation(this.account).then( succes => {
-            console.log(succes)
-            this.router.navigate([""])
+        auth.accountCreation(this.account).then( success => {
+            this.success = success
         })
     }
 }
