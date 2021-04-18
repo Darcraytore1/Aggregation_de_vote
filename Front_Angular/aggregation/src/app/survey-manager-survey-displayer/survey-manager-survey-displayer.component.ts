@@ -13,6 +13,7 @@ export class SurveyManagerSurveyDisplayerComponent implements OnInit {
 
     @Input() survey: Survey
     @Output() notify: EventEmitter<SurveyResult> = new EventEmitter<SurveyResult>();
+    @Output() surveyName: EventEmitter<string> = new EventEmitter<string>();
     surveyResult: SurveyResult = null
 
     constructor() { }
@@ -29,6 +30,7 @@ export class SurveyManagerSurveyDisplayerComponent implements OnInit {
             aggregationMethodsService.getSurveyResult(jsonVote).then(result => {
                 this.surveyResult = result
                 this.notify.emit(this.surveyResult)
+                this.surveyName.emit(this.survey.name)
             })
         })
     }

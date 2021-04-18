@@ -3,9 +3,16 @@
         <div class="col-4">
         </div>
         <div class="col-4 text-center">
-            <h1 class="margin-top">
-                Gestion de vos sondages
-            </h1>
+            <div *ngIf="surveyResult == null">
+                <h1 class="margin-top">
+                    Gestion de vos sondages
+                </h1>
+            </div>
+            <div *ngIf="surveyResult != null">
+                <h1 class="margin-top">
+                    {{ surveyName }}
+                </h1>
+            </div>
         </div>
         <div class="col-4 text-right">
             <a href="" class="margin-right">
@@ -18,7 +25,7 @@
     </div>
     <div *ngIf="isLoaded == true && surveyResult == null">
         <div *ngFor="let survey of surveys">
-            <app-survey-manager-survey-displayer [survey]="survey" (notify)=onNotifyClicked($event)></app-survey-manager-survey-displayer>
+            <app-survey-manager-survey-displayer [survey]="survey" (notify)="onNotifyClicked($event)" (surveyName)="onSurveyNameClicked($event)"></app-survey-manager-survey-displayer>
         </div>
     </div>
     <div *ngIf="surveyResult != null">

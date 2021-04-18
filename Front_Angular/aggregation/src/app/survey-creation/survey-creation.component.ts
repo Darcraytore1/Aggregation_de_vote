@@ -15,13 +15,8 @@ export class SurveyCreationComponent implements OnInit {
     choice: string = ""
     isCreated: boolean = false
     successMessage: string = ""
-    form = this.fb.group({
-        username: ['',Validators.required],
-        email: ['',Validators.email],
-        password: ['',Validators.required]
-    });
 
-    constructor(private fb: FormBuilder) { }
+    constructor() { }
 
     ngOnInit(): void {
     }

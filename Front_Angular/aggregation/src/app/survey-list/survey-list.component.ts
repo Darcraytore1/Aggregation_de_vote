@@ -13,6 +13,7 @@ export class SurveyListComponent implements OnInit {
     surveyList: Array<Survey> = null
     isCreated: boolean = false
     surveyResult: SurveyResult = null
+    surveyName: string = ""
 
     constructor() { }
 
@@ -39,5 +40,9 @@ export class SurveyListComponent implements OnInit {
 
     logSurveyResult(): void {
         console.log(this.surveyResult)
+    }
+
+    onSurveyNameClicked(surveyName: string): void {
+        this.surveyName = surveyName
     }
 }

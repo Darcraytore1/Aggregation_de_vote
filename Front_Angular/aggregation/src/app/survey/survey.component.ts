@@ -14,6 +14,7 @@ export class SurveyComponent implements OnInit {
 
 	@Input() survey: Survey = null;
     @Output() notify: EventEmitter<SurveyResult> = new EventEmitter<SurveyResult>();
+    @Output() surveyName: EventEmitter<string> = new EventEmitter<string>();
 
 	constructor(private router: Router) { }
 
@@ -34,6 +35,7 @@ export class SurveyComponent implements OnInit {
             let jsonVote = JSON.stringify(result)
             aggregationMethodsService.getSurveyResult(jsonVote).then(result => {
                 this.notify.emit(result)
+                this.surveyName.emit(this.survey.name)
             })
         })
     }

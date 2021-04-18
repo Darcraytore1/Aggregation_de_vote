@@ -1,12 +1,18 @@
-
 <div class="container-fluid">
     <div class="row align-center margin-bottom">
         <div class="col-4">
         </div>
         <div class="col-4 text-center">
-            <h1 class="margin-top">
-                Liste des sondages
-            </h1>
+            <div *ngIf="surveyResult == null">
+                <h1 class="margin-top">
+                    Liste des sondages
+                </h1>
+            </div>
+            <div *ngIf="surveyResult != null">
+                <h1 class="margin-top">
+                    {{surveyName}}
+                </h1>
+            </div>
         </div>
         <div class="col-4 text-right">
             <a href="" class="margin-right">
@@ -20,7 +26,7 @@
         </ng-container>
         <div *ngIf="isCreated">
             <div *ngFor="let survey of surveyList">
-                <app-survey [survey] = "survey" (notify)="onNotifyClicked($event)"></app-survey>
+                <app-survey [survey] = "survey" (notify)="onNotifyClicked($event)" (surveyName)="onSurveyNameClicked($event)"></app-survey>
             </div>
         </div>
     </div>

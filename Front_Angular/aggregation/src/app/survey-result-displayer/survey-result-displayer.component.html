@@ -5,6 +5,9 @@
         </div>
     </div>
     <h4>Classement :</h4>
+    <div *ngIf="counter != 1">
+        {{initCounter()}}
+    </div>
     <div class="margin-left margin-top" *ngFor="let key of getDetailKeys()">
         <label class="classement-number">{{counter}} - </label>
         {{key}} : {{surveyResult.details[key]}}

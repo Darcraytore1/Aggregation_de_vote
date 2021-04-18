@@ -14,6 +14,7 @@ export class SurveyManagerComponent implements OnInit {
     surveys: Array<Survey>
     isLoaded: boolean = false
     surveyResult: SurveyResult = null
+    surveyName: string = ""
 
     constructor() { }
 
@@ -31,7 +32,10 @@ export class SurveyManagerComponent implements OnInit {
 
     onNotifyClicked(surveyResult: SurveyResult): void {
         this.surveyResult = surveyResult
-        console.log(this.surveyResult)
+    }
+
+    onSurveyNameClicked(surveyName: string): void {
+        this.surveyName = surveyName
     }
 
     anotherSurveyResult(): void {

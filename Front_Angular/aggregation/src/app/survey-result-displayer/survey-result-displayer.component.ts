@@ -23,4 +23,8 @@ export class SurveyResultDisplayerComponent implements OnInit {
     incCounter() {
         this.counter ++
     }
+
+    initCounter() {
+        this.counter = 1
+    }
 }
