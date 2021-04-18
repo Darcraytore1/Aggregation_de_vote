@@ -29,6 +29,7 @@ export class AccountCreationComponent implements OnInit {
         let auth = new AuthentificationService()
         auth.accountCreation(this.account).then( success => {
             this.success = success
+            this.router.navigate([""])
         })
     }
 }

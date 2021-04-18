@@ -13,6 +13,7 @@ export class ChoiceListComponent implements OnInit {
     @Input() choices: Array<Choice> = null
     @ViewChildren (ChoiceComponent) sons: QueryList<ChoiceComponent> | undefined
     isVoted: boolean = false
+    error: number = 0
     successMessage: string = ""
 
     constructor() { }
@@ -21,6 +22,7 @@ export class ChoiceListComponent implements OnInit {
     }
 
     sendVote(): void {
+        this.error = 0
         let jsonSurvey = localStorage.getItem('idSurvey')
         let surveyId = parseInt(JSON.parse(jsonSurvey))
 
@@ -35,13 +37,22 @@ export class ChoiceListComponent implements OnInit {
         this.sons?.forEach( vote => {
             idChoice = vote.choice.id
             note = vote.note
+            if (note < 0 || note > 1){
+                this.error = 1
+                this.successMessage = "Veuillez rentrez des notes seulement entre 0 et 1"
+            }
             voteList.push({"idChoice" : idChoice, "note" : note})
         })
 
-        surveyService.vote(surveyId, voteList, userId).then( result => {
-            this.isVoted = result
-            if(this.isVoted) this.successMessage = "Votre vote a bien été compté"
-            else this.successMessage = "Votre vote n'a pas été compté pour une raison ou une autre"
-        })
+        if (this.error == 0) {
+            surveyService.vote(surveyId, voteList, userId).then( result => {
+                this.isVoted = result
+                if(this.isVoted) this.successMessage = "Votre vote a bien été compté"
+                else {
+                    this.error = 2
+                    this.successMessage = "Votre vote n'a pas été compté pour une raison ou une autre"
+                }
+            })
+        }
     }
 }

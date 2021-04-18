@@ -8,7 +8,10 @@
     <p *ngIf="isVoted && successMessage !== ''" class="success margin-top">
         Votre vote a bien été compté
     </p>
-    <p *ngIf="!isVoted && successMessage !== ''" class="error margin-top">
+    <p *ngIf="!isVoted && error == 1" class="error margin-top">
+        {{successMessage}}
+    </p>
+    <p *ngIf="!isVoted && error == 2" class="error margin-top">
         Votre vote n'a pas été compté pour une raison ou une autre
     </p>
 </div>
