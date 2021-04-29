@@ -2,6 +2,7 @@ import { Vote } from './Vote';
 import { Survey } from './Survey';
 import { Injectable } from '@angular/core';
 import { Choice } from './Choice';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class SurveyService {
         let data = '{ "idSurvey" :' + idSurvey + '}'
 
 
-        let result = await fetch(`http://127.0.0.1:8000/api/close-survey`,{
+        let result = await fetch(environment.apiUrl + `/close-survey`,{
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -30,7 +31,7 @@ export class SurveyService {
 
     async getVoteNote(idSurvey:number): Promise<Array<Vote>> {
 
-        let result = await fetch(`http://127.0.0.1:8000/api/get-vote-note?idSurvey=` + idSurvey,{
+        let result = await fetch(environment.apiUrl + `/get-vote-note?idSurvey=` + idSurvey,{
             method: "GET",
             headers: {
                 'Accept': 'application/json',
@@ -44,7 +45,7 @@ export class SurveyService {
 
     async getAdminSurveys(idUser: number): Promise<Array<Survey>> {
 
-        let result = await fetch(`http://127.0.0.1:8000/api/get-admin-survey?idUser=` + idUser,{
+        let result = await fetch(environment.apiUrl + `/get-admin-survey?idUser=` + idUser,{
             method: "GET",
             headers: {
                 'Accept': 'application/json',
@@ -62,7 +63,7 @@ export class SurveyService {
         let data = '{"idSurvey":' + surveyId + ',"vote":' + JSON.stringify(voteList) + ',"idUser":' + idUser + '}';
         console.log(data)
 
-        let result = await fetch(`http://127.0.0.1:8000/api/send-vote`,{
+        let result = await fetch(environment.apiUrl + `/send-vote`,{
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -78,7 +79,7 @@ export class SurveyService {
 
     async getChoice(idSurvey: number): Promise<Array<Choice>> {
 
-        let result = await fetch(`http://127.0.0.1:8000/api/get-choices?idSurvey=` + idSurvey,{
+        let result = await fetch(environment.apiUrl + `/get-choices?idSurvey=` + idSurvey,{
             method: "GET",
             headers: {
                 'Accept': 'application/json',
@@ -93,7 +94,7 @@ export class SurveyService {
     }
 
   async getSurveys(): Promise<Array<Survey>> {
-        let result = await fetch(`http://127.0.0.1:8000/api/get-surveys`,{
+        let result = await fetch(environment.apiUrl + `/get-surveys`,{
             method: "GET",
             headers: {
                 'Accept': 'application/json',
@@ -110,7 +111,7 @@ export class SurveyService {
         let data = JSON.stringify(survey);
         let data2 = '{"survey":' + data + ',"listChoice":' + JSON.stringify(listChoice) + ',"idUser":' + JSON.stringify(id_user) + '}';
 
-        let result = await fetch(`http://127.0.0.1:8000/api/create-survey`,{
+        let result = await fetch(environment.apiUrl + `/create-survey`,{
             method: "POST",
             headers: {
                 'Accept': 'application/json',
