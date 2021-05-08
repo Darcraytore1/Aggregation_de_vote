@@ -26,14 +26,13 @@ export class AggregationMethodsService {
 
     async getSurveyResult(survey: string): Promise<SurveyResult> {
 
-        let url = environment.apiUrl + "/aggregation-methods?survey=" + survey
-
-        let result = await fetch(url,{
-            method: "GET",
+        let result = await fetch(environment.apiUrl + "/aggregation-methods",{
+            method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            }
+            },
+            body: survey
         });
 
         let json = await result.json()
