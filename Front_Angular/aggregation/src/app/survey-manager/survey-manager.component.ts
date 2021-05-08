@@ -19,6 +19,7 @@ export class SurveyManagerComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
+        this.loadSurvey()
     }
 
     loadSurvey(): void {

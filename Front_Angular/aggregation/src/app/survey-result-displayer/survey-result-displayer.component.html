@@ -5,13 +5,9 @@
         </div>
     </div>
     <h4>Classement :</h4>
-    <div *ngIf="counter != 1">
-        {{initCounter()}}
-    </div>
-    <div class="margin-left margin-top" *ngFor="let key of getDetailKeys()">
-        <label class="classement-number">{{counter}} - </label>
+    <div class="margin-left margin-top" *ngFor="let key of getDetailKeys(); index as i">
+        <label class="classement-number">{{i + 1}} - </label>
         {{key}} : {{surveyResult.details[key]}}
-        {{incCounter()}}
     </div>
 </div>
 

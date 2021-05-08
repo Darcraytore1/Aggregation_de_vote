@@ -20,26 +20,23 @@
             </a>
         </div>
     </div>
-    <div *ngIf="surveyResult == null">
-        <ng-container *ngIf="!isCreated">
-            {{ getSurveyList() }}
-        </ng-container>
-        <div *ngIf="isCreated">
+    <div *ngIf="isCreated">
+        <div *ngIf="surveyResult == null">
             <div *ngFor="let survey of surveyList">
                 <app-survey [survey] = "survey" (notify)="onNotifyClicked($event)" (surveyName)="onSurveyNameClicked($event)"></app-survey>
             </div>
         </div>
-    </div>
-    <div *ngIf="surveyResult != null">
-        <div *ngFor="let survey of surveyResult">
-            <app-survey-result-displayer [surveyResult]="survey"></app-survey-result-displayer>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center margin-top">
-                    <button class="btn btn-primary" (click)="anotherSurveyResult()">
-                        Another Survey ?
-                    </button>
+        <div *ngIf="surveyResult != null">
+            <div *ngFor="let survey of surveyResult">
+                <app-survey-result-displayer [surveyResult]="survey"></app-survey-result-displayer>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center margin-top">
+                        <button class="btn btn-primary" (click)="anotherSurveyResult()">
+                            Another Survey ?
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -18,6 +18,7 @@ export class SurveyListComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
+        this.getSurveyList()
     }
 
     getSurveyList(): void {

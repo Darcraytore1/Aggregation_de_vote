@@ -1,29 +1,27 @@
-<div *ngIf="isLoaded == false">
-    {{loadSurveyAndChoice()}}
-</div>
-<div *ngIf="isLoaded == true">
-<div class="container-fluid">
-    <div class="row align-center">
-        <div class="col-4">
+<div *ngIf = "isLoaded == true">
+    <div class="container-fluid">
+        <div class="row align-center">
+            <div class="col-4">
+            </div>
+            <div class="col-4 text-center">
+                <h2 class="margin-top">
+                    Vous pouvez voter pour le sondage {{survey.name}}
+                </h2>
+            </div>
+            <div class="col-4 text-right">
+                <a href="" class="margin-right" routerLink=".." routerLinkActive="active">
+                    Retour
+                </a>
+            </div>
         </div>
-        <div class="col-4 text-center">
-            <h2 class="margin-top">
-                Vous pouvez voter pour le sondage {{survey.name}}
-            </h2>
+        <div class="row margin-left">
+            <p>
+                {{survey.description}}
+            </p>
         </div>
-        <div class="col-4 text-right">
-            <a href="" class="margin-right" routerLink=".." routerLinkActive="active">
-                Retour
-            </a>
+        <div class="margin-top margin-bottom margin-left">
+            Fonctionnement : Vous devez donner une note a chaque candidat, une note comprise entre 0 et 1. Vous pouvez voter autant de fois que vous voulez.
         </div>
+        <app-choice-list [choices] = "choices"></app-choice-list>
     </div>
-    <div class="row margin-left">
-        <p>
-            {{survey.description}}
-        </p>
-    </div>
-    <div class="margin-top margin-bottom margin-left">
-        Fonctionnement : Vous devez donner une note a chaque candidat, une note comprise entre 0 et 1. Vous pouvez voter autant de fois que vous voulez.
-    </div>
-    <app-choice-list [choices] = "choices"></app-choice-list>
 </div>

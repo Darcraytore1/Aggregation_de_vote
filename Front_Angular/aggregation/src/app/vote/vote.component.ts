@@ -17,6 +17,7 @@ export class VoteComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
+        this.loadSurveyAndChoice();
     }
 
     loadSurveyAndChoice(): void {
