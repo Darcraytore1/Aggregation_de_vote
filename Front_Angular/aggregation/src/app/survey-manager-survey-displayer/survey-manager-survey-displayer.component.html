@@ -9,7 +9,8 @@
                 <button (click)="result()" class="btn btn-primary">Resultat</button>
             </div>
             <div *ngIf="survey.isActive == true">
-                <button (click)="closeSurvey()" class="btn btn-warning">Clore le sondage</button>
+                <button (click)="closeSurvey()" class="btn btn-warning margin-right">Clore le sondage</button>
+                <button (click)="result()" class="btn btn-info">Resultat temporaire</button>
             </div>
         </div>
     </div>
