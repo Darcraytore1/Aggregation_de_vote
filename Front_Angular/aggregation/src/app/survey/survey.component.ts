@@ -16,7 +16,7 @@ export class SurveyComponent implements OnInit {
     @Output() notify: EventEmitter<SurveyResult> = new EventEmitter<SurveyResult>();
     @Output() surveyName: EventEmitter<string> = new EventEmitter<string>();
 
-	constructor(private router: Router) { }
+	constructor(private router: Router, private surveyService: SurveyService, private aggregationMethodsService: AggregationMethodsService) { }
 
 	ngOnInit(): void {
 	}
@@ -28,12 +28,20 @@ export class SurveyComponent implements OnInit {
     }
 
     result(): void {
-        let surveyService = new SurveyService();
-        let aggregationMethodsService = new AggregationMethodsService()
 
-        surveyService.getVoteNote(this.survey.id).then(result => {
+        /*
+        this.surveyService.getVoteNote(this.survey.id).then(result => {
             let jsonVote = JSON.stringify(result)
             aggregationMethodsService.getSurveyResult(jsonVote).then(result => {
+                this.notify.emit(result)
+                this.surveyName.emit(this.survey.name)
+            })
+        })
+        */
+
+        this.surveyService.getVoteNote2(this.survey.id).subscribe(result => {
+            let jsonVote = JSON.stringify(result)
+            this.aggregationMethodsService.getSurveyResult2(jsonVote).subscribe(result => {
                 this.notify.emit(result)
                 this.surveyName.emit(this.survey.name)
             })

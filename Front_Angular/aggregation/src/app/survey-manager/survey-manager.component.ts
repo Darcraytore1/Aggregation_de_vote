@@ -16,7 +16,7 @@ export class SurveyManagerComponent implements OnInit {
     surveyResult: SurveyResult = null
     surveyName: string = ""
 
-    constructor() { }
+    constructor(private surveyService: SurveyService) { }
 
     ngOnInit(): void {
         this.loadSurvey()
@@ -24,8 +24,15 @@ export class SurveyManagerComponent implements OnInit {
 
     loadSurvey(): void {
         let idAdmin = parseInt(localStorage.getItem('id'))
-        let surveyService = new SurveyService();
-        surveyService.getAdminSurveys(idAdmin).then( result => {
+
+        /*
+        this.surveyService.getAdminSurveys(idAdmin).then( result => {
+            this.surveys = result
+            this.isLoaded = true
+        })
+        */
+
+        this.surveyService.getAdminSurveys2(idAdmin).subscribe( result => {
             this.surveys = result
             this.isLoaded = true
         })

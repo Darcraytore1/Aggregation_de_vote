@@ -1,7 +1,8 @@
+import { AuthInterceptor } from './AuthInterceptor';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +21,7 @@ import { ChoiceComponent } from './choice/choice.component';
 import { ChoiceListComponent } from './choice-list/choice-list.component';
 import { SurveyManagerComponent } from './survey-manager/survey-manager.component';
 import { SurveyManagerSurveyDisplayerComponent } from './survey-manager-survey-displayer/survey-manager-survey-displayer.component';
+
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
@@ -60,7 +62,13 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true, useHash: true, relativeLinkResolution: 'legacy'})
   ],
-  providers: [],
+  providers: [
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

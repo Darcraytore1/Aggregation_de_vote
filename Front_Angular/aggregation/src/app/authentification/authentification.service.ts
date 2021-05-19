@@ -7,18 +7,33 @@ import { environment } from './../../environments/environment';
 })
 export class AuthentificationService {
 
-  constructor() { }
+    constructor() { }
 
     async authentificate(login: string, password: string): Promise<number> {
 
-        let result = await fetch(environment.apiUrl + `/find_user?username=` + login + "&password=" + password,{
-            method: "GET",
+        let data = '{"username":"' + login + '", "password":"' + password + '"}'
+
+        let url = environment.apiUrl.slice(0,-4)
+
+        let result = await fetch(url + `/login`,{
+            method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            }
+            },
+            body: data
         });
 
+        let json = await result.json()
+
+        if (json.token != undefined) {
+            localStorage.setItem('id_token', json.token)
+            return 1;
+        }
+        return -1
+
+
+        /*
         let json = await result.json()
         if (json.isLogged == true) {
             localStorage.setItem('id',json.id);
@@ -26,14 +41,16 @@ export class AuthentificationService {
         }
         if (json.empty == true) return -2
         return -1;
+        */
     }
 
     async accountCreation(loginAccount: LoginAccount): Promise<boolean> {
 
         let data = JSON.stringify(loginAccount)
-        console.log(data)
 
-        let result = await fetch(environment.apiUrl + `/create_account`,{
+        let url = environment.apiUrl.slice(0,-4)
+
+        let result = await fetch(url + `/register`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

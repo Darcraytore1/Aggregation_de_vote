@@ -16,7 +16,7 @@ export class SurveyCreationComponent implements OnInit {
     isCreated: boolean = false
     successMessage: string = ""
 
-    constructor() { }
+    constructor(private surveyService: SurveyService) { }
 
     ngOnInit(): void {
     }
@@ -33,9 +33,16 @@ export class SurveyCreationComponent implements OnInit {
     }
 
     sendSurvey(): void {
-        let surveyService = new SurveyService()
         let id_user = parseInt(localStorage.getItem("id"));
-        surveyService.createSurvey(this.survey, this.listChoice, id_user).then( result => {
+        /*
+        this.surveyService.createSurvey(this.survey, this.listChoice, id_user).then( result => {
+            this.isCreated = result
+            if (this.isCreated) this.successMessage = "Votre sondage a bien été créé"
+            else this.successMessage = "Votre sondage n'a pas pu être créé pour une raison ou une autre"
+        })
+        */
+
+        this.surveyService.createSurvey2(this.survey, this.listChoice, id_user).subscribe( result => {
             this.isCreated = result
             if (this.isCreated) this.successMessage = "Votre sondage a bien été créé"
             else this.successMessage = "Votre sondage n'a pas pu être créé pour une raison ou une autre"

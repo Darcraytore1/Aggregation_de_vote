@@ -17,7 +17,7 @@ export class SurveyJSONComponent implements OnInit {
     bordaMethod: Boolean = true
     MedianMethod: Boolean = true
 
-    constructor() { }
+    constructor(private agr: AggregationMethodsService) { }
 
     ngOnInit(): void {
     }
@@ -27,9 +27,8 @@ export class SurveyJSONComponent implements OnInit {
     }
 
     getSurveyResult(): void {
-        let agr = new AggregationMethodsService()
-        agr.getFileContent(this.fileToSend).then(result => {
-            agr.getSurveyResult(result).then( resultSurvey => {
+        this.agr.getFileContent2(this.fileToSend).subscribe(result => {
+            this.agr.getSurveyResult2(result).subscribe( resultSurvey => {
                 this.surveyResult = resultSurvey
                 console.log(resultSurvey)
             })

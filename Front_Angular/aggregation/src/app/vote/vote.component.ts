@@ -14,18 +14,23 @@ export class VoteComponent implements OnInit {
     survey: Survey = null
     choices: Array<Choice> = null
 
-    constructor() { }
+    constructor(private surveyService: SurveyService) { }
 
     ngOnInit(): void {
         this.loadSurveyAndChoice();
     }
 
     loadSurveyAndChoice(): void {
-        let surveyService = new SurveyService();
         let jsonSurvey = localStorage.getItem("survey")
         this.survey = JSON.parse(jsonSurvey)
         localStorage.setItem("idSurvey", this.survey.id + "")
-        surveyService.getChoice(this.survey.id).then( result => {
+        /*
+        this.surveyService.getChoice(this.survey.id).then( result => {
+            this.choices = result
+            this.isLoaded = true
+        })
+        */
+        this.surveyService.getChoice2(this.survey.id).subscribe( result => {
             this.choices = result
             this.isLoaded = true
         })

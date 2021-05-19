@@ -15,19 +15,27 @@ export class SurveyListComponent implements OnInit {
     surveyResult: SurveyResult = null
     surveyName: string = ""
 
-    constructor() { }
+    constructor(private surveyService: SurveyService) { }
 
     ngOnInit(): void {
         this.getSurveyList()
     }
 
     getSurveyList(): void {
+        /*
         if (this.isCreated == false) {
-            let surveyService = new SurveyService()
-            surveyService.getSurveys().then( result => {
+            this.surveyService.getSurveys().then( result => {
                 this.surveyList = result
                 this.isCreated = true
             })
+        }
+        */
+
+        if (this.isCreated == false) {
+            this.surveyService.getSurveys2().subscribe ( result => {
+                this.surveyList = result
+                this.isCreated = true
+            });
         }
     }
 

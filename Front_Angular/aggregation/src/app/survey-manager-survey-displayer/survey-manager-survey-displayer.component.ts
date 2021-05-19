@@ -16,18 +16,27 @@ export class SurveyManagerSurveyDisplayerComponent implements OnInit {
     @Output() surveyName: EventEmitter<string> = new EventEmitter<string>();
     surveyResult: SurveyResult = null
 
-    constructor() { }
+    constructor(private surveyService: SurveyService, private aggregationMethodsService: AggregationMethodsService) { }
 
     ngOnInit(): void {
     }
 
     result(): void {
-        let surveyService = new SurveyService();
-        let aggregationMethodsService = new AggregationMethodsService()
 
-        surveyService.getVoteNote(this.survey.id).then(result => {
+        /*
+        this.surveyService.getVoteNote(this.survey.id).then(result => {
             let jsonVote = JSON.stringify(result)
             aggregationMethodsService.getSurveyResult(jsonVote).then(result => {
+                this.surveyResult = result
+                this.notify.emit(this.surveyResult)
+                this.surveyName.emit(this.survey.name)
+            })
+        })
+        */
+
+        this.surveyService.getVoteNote2(this.survey.id).subscribe(result => {
+            let jsonVote = JSON.stringify(result)
+            this.aggregationMethodsService.getSurveyResult2(jsonVote).subscribe(result => {
                 this.surveyResult = result
                 this.notify.emit(this.surveyResult)
                 this.surveyName.emit(this.survey.name)
@@ -36,9 +45,14 @@ export class SurveyManagerSurveyDisplayerComponent implements OnInit {
     }
 
     closeSurvey(): void {
-        let surveyService = new SurveyService();
+        /*
+        this.surveyService.closeSurvey(this.survey.id).then( result => {
+            this.survey.isActive = false
+            console.log(result)
+        })
+        */
 
-        surveyService.closeSurvey(this.survey.id).then( result => {
+        this.surveyService.closeSurvey2(this.survey.id).subscribe( result => {
             this.survey.isActive = false
             console.log(result)
         })

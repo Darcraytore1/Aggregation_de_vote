@@ -16,7 +16,7 @@ export class ChoiceListComponent implements OnInit {
     error: number = 0
     successMessage: string = ""
 
-    constructor() { }
+    constructor(private surveyService: SurveyService) { }
 
     ngOnInit(): void {
     }
@@ -29,7 +29,6 @@ export class ChoiceListComponent implements OnInit {
         let jsonUserId = localStorage.getItem('id')
         let userId = parseInt(JSON.parse(jsonUserId))
 
-        let surveyService = new SurveyService()
         let voteList = []
         let idChoice: number
         let note: number
@@ -45,7 +44,7 @@ export class ChoiceListComponent implements OnInit {
         })
 
         if (this.error == 0) {
-            surveyService.vote(surveyId, voteList, userId).then( result => {
+            this.surveyService.vote(surveyId, voteList, userId).then( result => {
                 this.error = result;
                 console.log(this.error)
                 if (this.error == 2) this.successMessage = "Votre vote n'a pas été compté car vous avez déjà voté pour ce sondage"
