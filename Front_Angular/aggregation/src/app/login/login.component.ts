@@ -12,23 +12,33 @@ export class LoginComponent implements OnInit {
     account: Account = new LoginAccount("","");
     error: number
 
-    constructor() { }
+    constructor(private auth: AuthentificationService) { }
 
     ngOnInit(): void {
     }
 
     authentification () {
-        let auth = new AuthentificationService()
-        auth.authentificate(this.account.login,this.account.password).then ( isLogged => {
+        this.auth.authentificate(this.account.login,this.account.password).then ( isLogged => {
+
             if (isLogged == 1) {
-                localStorage.setItem('accountType', "admin")
-            } else if (isLogged == 2) {
-                localStorage.setItem('accountType', "user")
-            } else if (isLogged == -1) {
+                this.auth.getRolesAndId(this.account.login,this.account.password).subscribe( result => {
+                    localStorage.setItem('id',result.id.toString());
+                    if (result.roles.includes("ROLE_ADMIN")) {
+                        localStorage.setItem('accountType', "admin")
+                    } else {
+                        localStorage.setItem('accountType', "user")
+                    }
+                })
+            } else {
+                this.error = 1
+            }
+            /*
+            else if (isLogged == -1) {
                 this.error = 1
             } else {
                 this.error = 2
             }
+            */
         })
     }
 

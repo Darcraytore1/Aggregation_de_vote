@@ -19,15 +19,14 @@ export class AccountCreationComponent implements OnInit {
         password: ['',Validators.required]
     });
 
-    constructor(private fb: FormBuilder, private router: Router) { }
+    constructor(private fb: FormBuilder, private router: Router, private auth: AuthentificationService) { }
 
     ngOnInit(): void {
     }
 
     accountCreation(): void {
         this.account = new CreationAccount(this.form.value.username,this.form.value.password,this.form.value.email)
-        let auth = new AuthentificationService()
-        auth.accountCreation(this.account).then( success => {
+        this.auth.accountCreation(this.account).then( success => {
             this.success = success
             this.router.navigate([""])
         })

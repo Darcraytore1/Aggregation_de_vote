@@ -1,3 +1,4 @@
+import { ChoiceError } from './choice-list/ChoiceError';
 import { Observable } from 'rxjs';
 import { Vote } from './Vote';
 import { Survey } from './Survey';
@@ -119,13 +120,13 @@ export class SurveyService {
     }
 
 
-    vote2 (surveyId: number, voteList, idUser: number): Observable<number>{
+    vote2 (surveyId: number, voteList, idUser: number): Observable<ChoiceError>{
 
         let data = '{"idSurvey":' + surveyId + ',"vote":' + JSON.stringify(voteList) + ',"idUser":' + idUser + '}';
         console.log(data)
 
 
-        return this.http.post<number>(environment.apiUrl + `/send-vote`,
+        return this.http.post<ChoiceError>(environment.apiUrl + `/send-vote`,
             data,
             {
                 headers: {

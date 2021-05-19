@@ -1,3 +1,6 @@
+import { Observable } from 'rxjs';
+import { User } from './User';
+import { HttpClient } from '@angular/common/http';
 import { LoginAccount } from './../login/Account';
 import { Injectable } from '@angular/core';
 import { environment } from './../../environments/environment';
@@ -7,7 +10,7 @@ import { environment } from './../../environments/environment';
 })
 export class AuthentificationService {
 
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
     async authentificate(login: string, password: string): Promise<number> {
 
@@ -29,8 +32,9 @@ export class AuthentificationService {
         if (json.token != undefined) {
             localStorage.setItem('id_token', json.token)
             return 1;
+
         }
-        return -1
+        return -1;
 
 
         /*
@@ -43,6 +47,17 @@ export class AuthentificationService {
         return -1;
         */
     }
+
+    getRolesAndId(login: string, password: string): Observable<User> {
+
+        return this.http.get<User>(environment.apiUrl + `/find_user2?username=` + login + `&password=` + password,{
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+    }
+
 
     async accountCreation(loginAccount: LoginAccount): Promise<boolean> {
 

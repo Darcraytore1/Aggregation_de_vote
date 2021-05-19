@@ -44,9 +44,23 @@ export class ChoiceListComponent implements OnInit {
         })
 
         if (this.error == 0) {
+            /*
             this.surveyService.vote(surveyId, voteList, userId).then( result => {
                 this.error = result;
                 console.log(this.error)
+                if (this.error == 2) this.successMessage = "Votre vote n'a pas été compté car vous avez déjà voté pour ce sondage"
+                else if(this.error == 1) this.successMessage = "Votre vote a bien été compté"
+            })
+            */
+            this.surveyService.vote2(surveyId, voteList, userId).subscribe( result => {
+
+                if (result.isVoted != null) this.error = 2
+                else if (result.isActive != null) this.error = 3
+                else if (result.surveyExist != null) this.error = 4
+                else this.error = 1
+
+                console.log(this.error)
+
                 if (this.error == 2) this.successMessage = "Votre vote n'a pas été compté car vous avez déjà voté pour ce sondage"
                 else if(this.error == 1) this.successMessage = "Votre vote a bien été compté"
             })
